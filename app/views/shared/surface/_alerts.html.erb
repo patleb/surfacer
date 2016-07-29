@@ -1,11 +1,11 @@
 <% flash.try(:each) do |alert, message| %>
   <% next if alert == :timedout %>
 
-  <label class="alert-wrapper">
-    <input type="checkbox" class="css-toggle" aria-hidden="true">
+  <%= css_toggle class: 'alert-wrapper' do |toggle| %>
+    <%= toggle %>
 
     <div class="alert-message <%= alert %>">
       <%= message %>
     </div>
-  </label>
+  <% end %>
 <% end %>
