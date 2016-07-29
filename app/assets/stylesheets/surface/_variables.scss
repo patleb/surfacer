@@ -87,7 +87,7 @@ $box-shadow-raised-hover: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0,
 
 $cubic: cubic-bezier(.64,.09,.08,1) !default;
 
-$border-radius-small: 3px !default;
+$border-radius-small: 0 !default;
 $border-radius-med: 6px !default; 
 $border-radius-big: 10px !default; 
 
@@ -103,10 +103,10 @@ $media-tiny: 520px !default;
 
 // Flash Message States
 $flash-states: (
-  notice: (text: $blue, background: transparentize($blue, 0.80)),
-  success: (text: $green, background: transparentize($green, 0.80)),
-  warning: (text: $amber, background: transparentize($amber, 0.85)),
-  error: (text: $red, background: transparentize($red, 0.80))
+  notice: (text: darken($blue, 30%), background: transparentize($blue, 0.80)),
+  success: (text: darken($green, 30%), background: transparentize($green, 0.80)),
+  warning: (text: darken($yellow, 40%), background: transparentize($yellow, 0.85)),
+  error: (text: darken($red, 30%), background: transparentize($red, 0.80))
 );
 $flash-padding: $space-small !default;
 $flash-margin: $space-small/2 $space-small !default;
