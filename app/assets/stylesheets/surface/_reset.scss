@@ -1,13 +1,18 @@
 //https://github.com/jaydenseric/Fix/blob/master/fix.css
 
 html, body {
-	width: 100%;
+	-ms-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-tap-highlight-color: transparent;
 }
 
 body {
-	display: flex;
-	flex-wrap: wrap;
-	-webkit-font-smoothing: antialiased;
+	width: 100%;
+	margin: 0;
+	line-height: 1;
+	font-family: sans-serif;
 }
 
 html, body, div, span, applet, object, iframe,
@@ -26,21 +31,21 @@ time, mark, audio, video {
 	margin: 0;
 	padding: 0;
 	border: 0;
-	font-size: 100%;
+	font-size: inherit;
 	font: inherit;
 	vertical-align: baseline;
 	box-sizing: border-box;
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
+footer, header, hgroup, main, menu, nav, section {
 	display: block;
-}
-body {
-	line-height: 1;
 }
 ol, ul {
 	list-style: none;
+}
+li {
+	display: block;
 }
 blockquote, q {
 	quotes: none;
@@ -54,7 +59,33 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+figure {
+	margin: 0;
+}
+img {
+	border: 0;
+	max-width: 100%;
+	height: auto;
+	vertical-align: middle;
+}
+a {
+	text-decoration: none;
+	color: inherit;
+}
 button {
-	border: none;
+	border: 0;
+	margin: 0;
+	padding: 0;
+	text-align: inherit;
+	text-transform: inherit;
+	font: inherit;
+	-webkit-font-smoothing: inherit;
+	letter-spacing: inherit;
+	background: none;
 	cursor: pointer;
+	overflow: visible;
+}
+::-moz-focus-inner {
+	border: 0;
+	padding: 0;
 }

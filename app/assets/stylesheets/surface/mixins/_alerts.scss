@@ -16,6 +16,8 @@
 		@include card;
 		position: relative;
 		text-align: center;
+		padding: $flash-padding;
+		margin: $flash-margin;
 
 		@each $state, $colors in $flash-states {
 			&.#{$state} {
