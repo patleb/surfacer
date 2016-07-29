@@ -1,0 +1,74 @@
+@mixin btn {
+	box-shadow: $box-shadow-float;
+	position: relative;
+	cursor: pointer;
+	text-transform: uppercase;
+	background-image: none;
+	background-size: 0;
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+	transition: background-color 0.3s $cubic, box-shadow 0.3s $cubic;
+	will-change: background-size, background-image;
+	padding: $space-small $space-med;
+	margin: auto;
+	display: inline-block;
+	font-family: Roboto;
+	border: 0;
+	&:after {
+		position: absolute;
+		content: '';
+		transition: none;
+		background: radial-gradient(circle, white 95%, rgba(0,0,0,0) 95%);
+		background-size: 0.7%;
+		background-position: 50% 50%;
+		background-repeat: no-repeat;
+	}
+	&:focus {
+		outline: none;
+		background-size: 1000%;
+		transition: all 1s $cubic;
+	}
+}
+
+@mixin btn-gradient($color) {
+	background-image: radial-gradient(circle, $color 1%, lighten($color, 15%) 15%, rgba(0,0,0,0) 30%);
+	background-color: $color;
+}
+
+@mixin btn-type-and-color($type: 'raised', $color: $accent) {
+	@include btn-gradient($color);
+
+	@if $type == 'raised' {
+		border-radius: $border-radius-small*0.66;
+		box-shadow: $box-shadow-raised;
+		will-change: box-shadow, background-color;
+		color: white;
+		&:hover {
+			box-shadow: $box-shadow-raised-hover;
+			background-color: lighten($color, 5%);
+		}
+	}
+	@else if $type == 'float' {
+		border-radius: 50%;
+		flex: none;
+		width: $button-float-size;
+		height: $button-float-size;
+		text-align: center;
+		line-height: $button-float-size;
+		vertical-align: middle;
+		will-change: box-shadow, background-color;
+		font-size: $font-big;
+		padding: 0;
+		&:hover {
+			box-shadow: $box-shadow-float-hover;
+			background-color: lighten($color, 5%);
+		}
+	}
+	@else if $type == 'flat' {
+		background-color: $body-background;
+		box-shadow: none;
+	}
+	@else {
+		@error '$type must be raised, float or flat';
+	}
+}

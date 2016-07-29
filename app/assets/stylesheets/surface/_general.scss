@@ -2,3 +2,7 @@ body {
 	background: $body-background;
 	line-height: $line-height;
 }
+
+button {
+	@include btn;
+}
