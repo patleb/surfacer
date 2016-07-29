@@ -1,5 +1,3 @@
-@import './_imports/_variables';
-
 a:not([class^="btn"]) {
 	background: linear-gradient(to top, rgba($secondary, 0.8) 50%, rgba(255,255,255,0) 50%);
 	background-size: 100% 200%;

@@ -1,5 +1,3 @@
-@import './_imports/_variables';
-
 @mixin tabs($num-of-tabs, $tab-set-name) {
   .tabs input[type="radio"][name="tabs"] {
     @for $i from 1 through $num-of-tabs {

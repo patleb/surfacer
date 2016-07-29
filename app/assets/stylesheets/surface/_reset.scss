@@ -5,6 +5,7 @@ html, body {
 body {
 	display: flex;
 	flex-wrap: wrap;
+	-webkit-font-smoothing: antialiased;
 }
 
 html, body, div, span, applet, object, iframe,
