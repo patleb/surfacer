@@ -1,0 +1,4 @@
+@mixin subtitle {
+  font-style: italic;
+  color: darken($grey, 5%);
+}
