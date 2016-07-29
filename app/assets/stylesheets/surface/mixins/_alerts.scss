@@ -1,0 +1,27 @@
+@mixin alerts {
+	& .alert-wrapper {
+		position: relative;
+		cursor: pointer;
+	}
+
+	& .css-toggle {
+		display: none;
+
+		&:checked + .alert-message {
+			display: none;
+		}
+	}
+
+	& .alert-message {
+		@include card;
+		position: relative;
+		text-align: center;
+
+		@each $state, $colors in $flash-states {
+			&.#{$state} {
+				color: map-get($colors, text);
+				background-color: map-get($colors, background);
+			}
+		}
+	}
+}

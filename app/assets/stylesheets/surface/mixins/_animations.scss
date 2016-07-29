@@ -1,0 +1,40 @@
+@keyframes fadeInHoriz {
+	to {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+@keyframes fadeInVert {
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@mixin fade-in-from($direction: top, $animation-delay: 0) {
+	opacity: 0;
+	@if $direction == top {
+		transform: translateY(-$fade-in-translation);
+		animation: fadeInVert 0.5s ease-out forwards;
+		animation-delay: #{$animation-delay}ms;
+	}
+	@else if $direction == bottom {
+		transform: translateY($fade-in-translation);
+		animation: fadeInVert 0.5s ease-out forwards;
+		animation-delay: #{$animation-delay}ms;
+	}
+	@else if $direction == left {
+		transform: translateX(-$fade-in-translation);
+		animation: fadeInHoriz 0.5s ease-out forwards;
+		animation-delay: #{$animation-delay}ms;
+	}
+	@else if $direction == right {
+		transform: translateX($fade-in-translation);
+		animation: fadeInHoriz 0.5s ease-out forwards;
+		animation-delay: #{$animation-delay}ms;
+	}
+	@else {
+		@error "$direction must be top, bottom, left or right";
+	}
+}

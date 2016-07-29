@@ -1,0 +1,16 @@
+%card-or-tile {
+	padding: $space-med;
+	background: white;
+}
+
+@mixin card {
+	@extend %card-or-tile;
+	box-shadow: $box-shadow-card;
+	border-radius: $border-radius-small;
+	padding: $space-med;
+	background: white;
+}
+
+@mixin tile {
+	@extend %card-or-tile;
+}

@@ -101,4 +101,14 @@ $media-med: 1200px !default;
 $media-small: 900px !default;
 $media-tiny: 520px !default;
 
+// Flash Message States
+$flash-states: (
+  notice: (text: $blue, background: transparentize($blue, 0.5)),
+  success: (text: $green, background: transparentize($green, 0.5)),
+  warning: (text: $yellow, background: transparentize($yellow, 0.5)),
+  error: (text: $red, background: transparentize($red, 0.5))
+);
 
+// Fade in
+$fade-in-translation: $space-small;
+$fade-in-directions: (top bottom left right);

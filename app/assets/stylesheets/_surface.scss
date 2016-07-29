@@ -1,7 +1,9 @@
 @import 'surface/variables';
 @import 'surface/reset';
 @import 'surface/grid';
-@import 'surface/cards_tiles';
+@import 'surface/mixins/cards_tiles';
+@import 'surface/mixins/alerts';
+@import 'surface/mixins/animations';
 @import 'surface/type';
 @import 'surface/general';
 @import 'surface/links';
@@ -17,9 +19,7 @@
 @import 'surface/form';
 @import 'surface/lightbox';
 @import 'surface/utility';
-@import 'surface/animations';
 @import 'surface/media';
-@import 'surface/alerts';
 @import 'surface/collapsible';
 @import 'surface/code';
 @import 'surface/colors';
