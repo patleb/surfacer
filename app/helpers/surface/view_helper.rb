@@ -1,41 +1,5 @@
 module Surface
   module ViewHelper
-    HTML_TAGS = Set.new(%i[
-      div
-      p
-      label
-    ])
-
-=begin
-  * IMPORTANT
-  override of Kernel method `p`, but only in view context
-
-  def p(*args, &block)
-    ...
-  end
-
-  # https://github.com/activeadmin/arbre/blob/master/lib/arbre/html/html5_elements.rb#L16
-  # might want to use --> tag = :p if tag == :para
-=end
-
-    HTML_TAGS.each do |tag|
-      define_method tag do |*args, &block|
-        options = args.extract_options!
-        object_or_text = args.first
-
-        case object_or_text
-        when String, Symbol, nil
-          if block
-            content_tag tag, capture(&block), options
-          else
-            content_tag tag, object_or_text, options
-          end
-        else
-          content_tag_for tag, object_or_text, options, &block
-        end
-      end
-    end
-
     def component(partial, locals = {}, &block)
       unless partial.include? '/'
         raise ArgumentError, 'partial full path name must be given or the partial is at the root level in views folder'
@@ -52,30 +16,52 @@ module Surface
       end
     end
 
-    def collapsible(label, html_options = {})
-      css_toggle_label label, html_options do
+    def collapsible(label, **html_options)
+      css_toggle label, html_options do
         concat(div(class: 'collapsible-content') do
           yield
         end)
       end
     end
 
-    def css_toggle_label(label, html_options = {})
-      div html_options do
-        id = SecureRandom.hex
+    def css_toggle(label = nil, **html_options)
+      if label
+        div html_options do
+          id = SecureRandom.hex
 
-        concat %{ <input type="checkbox" class="css-toggle" aria-hidden="true" id="#{id}"> }.html_safe
-        concat label(label, for: id, class: 'css-toggle-label')
+          concat %{ <input type="checkbox" class="css-toggle" aria-hidden="true" id="#{id}"> }.html_safe
+          concat content_tag(:label, label, for: id, class: 'css-toggle-label')
 
-        yield
+          yield
+        end
+      else
+        if html_options.has_key? :class
+          html_options[:class] << ' css-toggle-label'
+        else
+          html_options[:class] = 'css-toggle-label'
+        end
+
+        content_tag :label, html_options do
+          concat %{ <input type="checkbox" class="css-toggle" aria-hidden="true"> }.html_safe
+
+          yield
+        end
       end
     end
 
-    def css_toggle(html_options = {})
-      label html_options do
-        concat %{ <input type="checkbox" class="css-toggle" aria-hidden="true"> }.html_safe
+    def div(*args, &block)
+      options = args.extract_options!
+      object_or_text = args.first
 
-        yield
+      case object_or_text
+      when String, Symbol, nil
+        if block
+          content_tag :div, capture(&block), options
+        else
+          content_tag :div, object_or_text, options
+        end
+      else
+        div_for object_or_text, options, &block
       end
     end
   end
