@@ -46,15 +46,36 @@ module Surface
       end
     end
 
-    def css_toggle(html_options = {})
-      toggle = %{ <input type="checkbox" class="css-toggle" aria-hidden="true"> }.html_safe
+    def alert(alert, message)
+      css_toggle class: 'alert-wrapper' do
+        concat div(message, class: ['alert-message', alert])
+      end
+    end
 
-      if block_given?
-        label html_options do
-          yield toggle
-        end
-      else
-        toggle
+    def collapsible(label, html_options = {})
+      css_toggle_label label, html_options do
+        concat(div(class: 'collapsible-content') do
+          yield
+        end)
+      end
+    end
+
+    def css_toggle_label(label, html_options = {})
+      div html_options do
+        id = SecureRandom.hex
+
+        concat %{ <input type="checkbox" class="css-toggle" aria-hidden="true" id="#{id}"> }.html_safe
+        concat label(label, for: id, class: 'css-toggle-label')
+
+        yield
+      end
+    end
+
+    def css_toggle(html_options = {})
+      label html_options do
+        concat %{ <input type="checkbox" class="css-toggle" aria-hidden="true"> }.html_safe
+
+        yield
       end
     end
   end
