@@ -67,6 +67,9 @@
 	@else if $type == 'flat' {
 		background-color: $body-background;
 		box-shadow: none;
+		&:hover {
+			background-color: darken($body-background, 5%);
+		}
 	}
 	@else {
 		@error '$type must be raised, float or flat';
