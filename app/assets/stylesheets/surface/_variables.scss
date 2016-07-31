@@ -95,6 +95,7 @@ $border-radius-big: 10px !default;
 $space-big: 40px !default;
 $space-med: 20px !default;
 $space-small: 10px !default;
+$space-tiny: 5px !default;
 
 // Media Queries
 $media-med: 1200px !default;
@@ -109,7 +110,7 @@ $flash-states: (
   error: (text: darken($red, 30%), background: transparentize($red, 0.80))
 );
 $flash-padding: $space-small !default;
-$flash-margin: $space-small/2 $space-small !default;
+$flash-margin: $space-tiny $space-small !default;
 
 // Fade in
 $fade-in-translation: $space-small;
