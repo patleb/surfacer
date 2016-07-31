@@ -11,38 +11,38 @@ module Surface
     end
 
     def alert(alert, message)
-      css_toggle class: 'alert-wrapper' do
+      css_click class: 'alert-wrapper' do
         concat div(message, class: ['alert-message', alert])
       end
     end
 
     def collapsible(label, **html_options)
-      css_toggle label, html_options do
+      css_click label, html_options do
         concat(div(class: 'collapsible-content') do
           yield
         end)
       end
     end
 
-    def css_toggle(label = nil, **html_options)
+    def css_click(label = nil, **html_options)
       if label
         div html_options do
           id = SecureRandom.hex
 
-          concat %{ <input type="checkbox" class="css-toggle" aria-hidden="true" id="#{id}"> }.html_safe
-          concat content_tag(:label, label, for: id, class: 'css-toggle-label')
+          concat %{ <input type="checkbox" class="css-click" aria-hidden="true" id="#{id}"> }.html_safe
+          concat content_tag(:label, label, for: id, class: 'css-click-label')
 
           yield
         end
       else
         if html_options.has_key? :class
-          html_options[:class] << ' css-toggle-label'
+          html_options[:class] << ' css-click-label'
         else
-          html_options[:class] = 'css-toggle-label'
+          html_options[:class] = 'css-click-label'
         end
 
         content_tag :label, html_options do
-          concat %{ <input type="checkbox" class="css-toggle" aria-hidden="true"> }.html_safe
+          concat %{ <input type="checkbox" class="css-click" aria-hidden="true"> }.html_safe
 
           yield
         end

@@ -1,5 +1,5 @@
 @mixin collapsible {
-	& .css-toggle-label {
+	& .css-click-label {
 		width: 100%;
 		cursor: pointer;
 		display: flex;
@@ -35,7 +35,7 @@
 		padding-left: $space-med;
 	}
 
-	& .css-toggle {
+	& .css-click {
 		display: none;
 		&:checked  ~ .collapsible-content {
 			transform: scaleY(1);
@@ -43,7 +43,7 @@
 			padding: $space-small*1.5 $space-med;
 			margin-bottom: $space-med;
 		}
-		&:checked + .css-toggle-label {
+		&:checked + .css-click-label {
 			&:before {
 				margin-top: 6px;
 				transform: rotate(-45deg) translateX(1px);
