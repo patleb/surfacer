@@ -2,7 +2,7 @@ module Surface
   class FormBuilder < ::ActionView::Helpers::FormBuilder
     def range_field(attribute, **options)
       if options.delete(:current)
-        options[:oninput] = options[:onchange] = "this.dataset.value = this.value"
+        options[:oninput] = options[:onchange] = "this.setAttribute('data-value', this.value)"
         options['data-value'] = options[:value] = object.send(attribute) || options.delete(:value)
       end
 
