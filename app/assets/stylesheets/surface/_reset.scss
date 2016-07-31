@@ -99,7 +99,6 @@ video {
   margin: 0;
   padding: 0;
   border: 0;
-  font-size: inherit;
   font: inherit;
   vertical-align: baseline;
   box-sizing: border-box;
@@ -136,7 +135,6 @@ blockquote:before,
 blockquote:after,
 q:before,
 q:after {
-  content: '';
   content: none;
 }
 table {
