@@ -1,4 +1,4 @@
-a {
+@mixin link {
 	background: linear-gradient(to top, rgba($secondary, 0.8) 50%, rgba(255,255,255,0) 50%);
 	background-size: 100% 200%;
 	background-position: 0 10%;

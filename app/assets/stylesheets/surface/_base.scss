@@ -1,0 +1,230 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto);
+@import url(https://fonts.googleapis.com/icon?family=Material+Icons);
+
+body {
+  background: $body-background;
+  line-height: $line-height;
+}
+
+div,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a,
+input,
+label,
+header,
+aside,
+menu,
+body {
+  font-family: $sans;
+  color: $black;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-bottom: 1em*0.8;
+  line-height: 130%;
+}
+
+p {
+  margin-bottom: $space-med;
+}
+
+h1 {
+  font-size: $font-huge;
+}
+
+h2 {
+  font-size: $font-huge*0.85;
+}
+
+h3 {
+  font-size: $font-huge*0.7;
+}
+
+h4 {
+  font-size: $font-huge*0.62;
+}
+
+h5 {
+  font-size: $font-huge*0.52;
+}
+
+h6 {
+  font-size: $font-huge*0.45;
+}
+
+p,
+a {
+  font-size: $font-med;
+}
+
+a {
+  @include link;
+}
+
+button {
+  @include btn;
+}
+
+label {
+  @include input-label;
+}
+
+input {
+  &[type="text"],
+  &[type="email"],
+  &[type="password"],
+  &[type="search"],
+  &[type="time"],
+  &[type="date"],
+  &[type="datetime-local"],
+  &[type="number"] {
+    @include input-text;
+  }
+}
+
+textarea {
+  @include input-textarea;
+}
+
+input[type="checkbox"] {
+  @include input-checkbox;
+}
+
+input[type="radio"] {
+  @include input-radio;
+}
+
+select {
+  @include input-select;
+}
+
+input[type=range] {
+  @include input-range;
+}
+
+form {
+  @include input-toggle;
+}
+
+header {
+  width: 100%;
+  padding-top: $space-small;
+  padding-bottom: $space-small;
+  background: $primary;
+  margin-bottom: $space-big*1.75;
+  h1,
+  h2,
+  h3 {
+    color: white;
+  }
+  @media screen and (max-width: $media-med) {
+    margin-bottom: $space-big*0.85;
+    padding-top: $space-med;
+  }
+  @media screen and (max-width: $media-small) {
+    padding-top: $space-big;
+    padding-bottom: $space-small*0.5;
+    margin-bottom: $space-small*0.85;
+  }
+}
+
+footer {
+  display: block;
+  width: 100%;
+  background: $secondary;
+  padding-top: $space-med;
+  padding-bottom: $space-med;
+}
+
+img,
+audio,
+video {
+  width: 100%;
+  vertical-align: middle;
+}
+
+ul,
+ol {
+  margin-left: $space-med;
+  margin-bottom: $space-med;
+  li {
+    margin-top: $space-small*1;
+  }
+}
+
+ol {
+  list-style-type: decimal;
+  white-space: nowrap;
+}
+
+table {
+  width: 100%;
+}
+
+.table-header {
+  color: lighten($black, 15%);
+  font-size: $font-med;
+  line-height: $space-big*1.3;
+}
+
+tr {
+  font-size: $font-med + 1px;
+  line-height: $space-big*1.3;
+  border-bottom: solid 1px lighten($grey, 30%);
+  will-change: background;
+  &:not(.table-header) {
+    &:hover {
+      background: lighten($grey, 30%);
+    }
+  }
+}
+
+td {
+  &:first-child {
+    padding-left: $space-big;
+    @media screen and (max-width: $media-med) {
+      padding-left: $space-big*0.8;
+    }
+    @media screen and (max-width: $media-small) {
+      padding-left: $space-med;
+    }
+  }
+  &:last-child {
+    padding-right: $space-big;
+    @media screen and (max-width: $media-med) {
+      padding-right: $space-big*0.8;
+    }
+    @media screen and (max-width: $media-small) {
+      padding-right: $space-med;
+    }
+  }
+}
+
+// https://highlightjs.org/
+code {
+  font-family: monospace;
+  font-size: $font-med;
+  padding-left: 40px;
+  padding-right: 40px;
+  min-width: 500px;
+  max-width: 800px;
+  @media screen and (max-width: $media-small) {
+    width: 400px;
+  }
+  @media screen and (max-width: $media-tiny) {
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+  }
+}
