@@ -124,9 +124,11 @@ ol,
 ul {
   list-style: none;
 }
+
 li {
   display: block;
 }
+
 blockquote,
 q {
   quotes: none;
@@ -137,13 +139,20 @@ q:before,
 q:after {
   content: none;
 }
+
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+
 button {
   border: none;
   cursor: pointer;
+}
+
+button,
+input {
+  font: inherit;
 }
 
 ::-moz-focus-inner {
