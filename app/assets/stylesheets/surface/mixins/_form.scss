@@ -1,0 +1,258 @@
+@mixin input-label {
+	&:not(.css-toggle-label) {
+		color: lighten($black, 5%);
+	}
+}
+
+@mixin input-text {
+	margin-bottom: $space-big;
+	width: 200px;
+	display: block;
+	border: none;
+	padding: 10px 0;
+	border-bottom: solid 1px $primary;
+	will-change: background-position;
+	transition: all 0.3s cubic-bezier(.64,.09,.08,1);
+	background: linear-gradient(to bottom, rgba(255,255,255,0) 96%, $primary 96%);
+	background-position: -200px 0;
+	background-size: 200px 100%;
+	background-repeat: no-repeat;
+	color: darken($primary, 20%);
+	&:focus, &[value=""] {
+		box-shadow: none;
+		outline: none;
+		background-position: 0 0;
+		&::placeholder {
+			color: $primary;
+			font-size: 12px;
+			transform: translateY(-20px);
+			visibility: visible !important;
+		}
+	}
+	&::placeholder {
+		transition: all 0.2s $cubic;
+	}
+}
+
+@mixin input-textarea {
+	border: solid 1px $grey;
+	transition: border 0.3s $cubic;
+	&:focus {
+		border: solid 1px $primary;
+		outline: none;
+	}
+}
+
+@mixin input-checkbox {
+	&:not(.css-toggle){
+		position: relative;
+		cursor: pointer;
+		&:before {
+			content: '';
+			width: 16px;
+			height: 16px;
+			border: solid 2px $primary;
+			border-radius: $border-radius-small;
+			background: white;
+			position: absolute;
+		}
+		&:after {
+			content: '✓';
+			color: white;
+			background: $primary;
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 16px;
+			height: 16px;
+			border: solid 2px $primary;
+			border-radius: $border-radius-small;
+			display: inline-flex;
+			align-items: center;
+			opacity: 0;
+			transition: opacity 0.3s $cubic;
+			will-change: opacity;
+		}
+		&:checked {
+			&:after {
+				opacity: 1;
+			}
+		}
+		&:focus {
+			outline: none;
+		}
+	}
+}
+
+@mixin input-radio {
+	position: relative;
+	top: 2px;
+	left: 2px;
+	margin: 0 8px;
+	cursor: pointer;
+	&:before {
+		content: '';
+		background-color: white;
+		width: 16px;
+		height: 16px;
+		border-radius: 50%;
+		border: solid 2px $primary;
+		display: inline-block;
+		position: absolute;
+		top: -2px;
+		left: -2px;
+		background-image: radial-gradient(circle, $primary 40%, white 50%);
+		background-size: 0;
+		background-position: 50% 50%;
+		background-repeat: no-repeat;
+		transition: all 0.3s $cubic;
+		will-change: background-size;
+		z-index: 2;
+	}
+	&:after {
+		content: '';
+		width: 16px;
+		height: 16px;
+		background: white;
+		border-radius: 50%;
+		position: absolute;
+		transition: all 0.3s $cubic;
+	}
+	&:checked {
+		&:before {
+			background-size: 14px 14px;
+		}
+	}
+	&:focus {
+		outline: none;
+	}
+}
+
+@mixin input-select {
+	border: none;
+	border-bottom: solid 1px $grey;
+	color: $black;
+	padding: 6px;
+	cursor: pointer;
+	background: white;
+	& option {
+		background: white;
+	}
+}
+
+%range-value {
+	position: relative;
+	&:before {
+		content: attr(data-value);
+		color: darken($primary, 10%);
+		position: absolute;
+		background: transparent;
+		padding: $space-small;
+		bottom: -2.5em;
+		left: 50%;
+		transform: translateX(-50%);
+		z-index: 2;
+	}
+}
+
+@mixin input-range {
+	@extend %range-value;
+
+	-webkit-appearance: none;
+
+	&:focus {
+		outline: none;
+	}
+
+	&::-webkit-slider-runnable-track {
+		height: 3px;
+		cursor: pointer;
+		background: $grey;
+	}
+
+	&::-webkit-slider-thumb {
+		height: 16px;
+		width: 16px;
+		border-radius: 50%;
+		background: $primary;
+		cursor: pointer;
+		-webkit-appearance: none;
+		margin-top: -6px;
+		box-shadow: $box-shadow-card;
+	}
+
+	&::-moz-range-track {
+		height: 3px;
+		cursor: pointer;
+		background: $grey;
+	}
+
+	&::-moz-range-thumb {
+		height: 16px;
+		width: 16px;
+		border-radius: 50%;
+		border: none;
+		background: $primary;
+		cursor: pointer;
+	}
+
+	&::-ms-track {
+		cursor: pointer;
+		background: transparent;
+		border-color: transparent;
+		color: transparent;
+	}
+
+	&::-ms-thumb {
+		background: $primary;
+	}
+
+	&::-ms-fill-lower {
+		background: $primary;
+	}
+
+	&::-ms-fill-upper {
+		background: $grey;
+	}
+}
+
+@mixin input-toggle {
+	& .css-toggle {
+		display: none;
+		&:checked {
+			+ .css-toggle-label {
+				background: lighten($accent, 25%);
+				&:after {
+					background: $accent;
+					margin-left: 18px;
+				}
+			}
+		}
+	}
+
+	& .css-toggle + .css-toggle-label {
+		position: absolute;
+		width: 30px;
+		height: 14px;
+		border-radius: 7px;
+		margin-top: 12px;
+		background: $grey;
+		transition: background 0.3s $cubic;
+		will-change: background;
+		&:after {
+			position: absolute;
+			content: '';
+			width: 14px;
+			height: 14px;
+			border-radius: 50%;
+			background: lighten($grey, 25%);
+			display: inline-block;
+			cursor: pointer;
+			margin-top: 0;
+			margin-left: -1px;
+			transition: all 0.3s ease;
+			will-change: background, margin-left;
+			box-shadow: $box-shadow-card;
+		}
+	}
+}
