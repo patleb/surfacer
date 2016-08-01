@@ -13,9 +13,9 @@
   & .collapsible-wrapper {
     flex-grow: 0;
     flex-shrink: 1;
-  }
 
-  & .css-click-label, .collapsible-content {
-    background-color: white;
+    & > * {
+      background-color: white;
+    }
   }
 }

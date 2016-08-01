@@ -41,7 +41,7 @@
 			transform: scaleY(1);
 			height: auto;
 			padding: $space-small*1.5 $space-med;
-			margin-bottom: $space-med;
+			margin-bottom: $space-small;
 		}
 		&:checked + .css-click-label {
 			&:before {
