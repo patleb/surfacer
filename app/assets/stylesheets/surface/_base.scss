@@ -4,6 +4,7 @@
 body {
   background: $body-background;
   line-height: $line-height;
+  @include input-toggle;
 }
 
 div,
@@ -93,6 +94,15 @@ input {
   }
 }
 
+input {
+  &[type="time"],
+  &[type="date"],
+  &[type="datetime-local"] {
+    border: none;
+    background: transparent;
+  }
+}
+
 textarea {
   @include input-textarea;
 }
@@ -111,10 +121,6 @@ select {
 
 input[type=range] {
   @include input-range;
-}
-
-form {
-  @include input-toggle;
 }
 
 header {
