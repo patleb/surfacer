@@ -107,7 +107,7 @@ textarea {
   @include input-textarea;
 }
 
-input[type="checkbox"] {
+input[type="checkbox"]:not(.css-click) {
   @include input-checkbox;
 }
 
@@ -119,7 +119,7 @@ select {
   @include input-select;
 }
 
-input[type=range] {
+input[type="range"] {
   @include input-range;
 }
 
