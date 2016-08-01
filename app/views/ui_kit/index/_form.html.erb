@@ -1,0 +1,48 @@
+<% collection = %w[A B C D].map{ |n| UIKit.new(enum: n) } %>
+
+<%= form_for @ui_kit, url: root_path, method: :get do |f| %>
+  <div class="text-types">
+    <div class="text">
+      <%= f.text_field :text, placeholder: true %>
+    </div>
+    <div class="number">
+      <%= f.number_field :number, placeholder: true %>
+    </div>
+
+    <div class="textarea">
+      <%= f.label :text_area %>
+      <%= f.text_area :text_area %>
+    </div>
+  </div>
+
+  <div class="toggle-types">
+    <div class="checkbox">
+      <%= f.label :checkbox %>
+      <%= f.check_box :checkbox %>
+    </div>
+
+    <div class="radio">
+      <%= f.label :radio %>
+      <%= f.collection_radio_buttons(:radio, collection, :id, :enum) do |b| %>
+        <%= b.label { concat b.text; concat b.radio_button } %>
+      <% end %>
+    </div>
+
+    <div class="toggle">
+      <%= f.toggle_field :toggle %>
+    </div>
+  </div>
+
+  <div class="select-types">
+    <%= f.collection_select(:select, collection, :id, :enum) %>
+    <%= f.range_field :range, in: (1..100), current: true %>
+  </div>
+
+  <div class="others">
+    <%= f.time_field :time %>
+    <%= f.date_field :date %>
+    <%= f.datetime_field :datetime %>
+  </div>
+
+  <%= f.button :submit, onclick: 'return false' %>
+<% end %>

@@ -1,0 +1,5 @@
+<% flash.try(:each) do |type, message| %>
+  <% next if type == :timedout %>
+
+  <%= alert type, message %>
+<% end %>
