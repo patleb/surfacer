@@ -1,6 +1,5 @@
 @mixin btn {
 	box-shadow: $box-shadow-float;
-	position: relative;
 	cursor: pointer;
 	text-transform: uppercase;
 	background-image: none;
@@ -11,11 +10,9 @@
 	will-change: background-size, background-image;
 	padding: $space-small $space-med;
 	margin: auto;
-	display: inline-block;
 	font-family: Roboto;
 	border: 0;
 	&:after {
-		position: absolute;
 		content: '';
 		transition: none;
 		background: radial-gradient(circle, white 95%, rgba(0,0,0,0) 95%);
@@ -50,12 +47,10 @@
 	}
 	@else if $type == 'float' {
 		border-radius: 50%;
-		flex: none;
 		width: $button-float-size;
 		height: $button-float-size;
 		text-align: center;
 		line-height: $button-float-size;
-		vertical-align: middle;
 		will-change: box-shadow, background-color;
 		font-size: $font-big;
 		padding: 0;
