@@ -1,5 +1,15 @@
 module Surface
   module ViewHelper
+    def body_class(*args)
+      template = controller.template_virtual_path.tr('/_','-')
+      css_classes = [
+        template,
+        I18n.locale,
+      ]
+      css_classes.concat(args) if args.any?
+      css_classes.compact.join(' ')
+    end
+
     def component(partial, locals = {}, &block)
       unless partial.include? '/'
         raise ArgumentError, 'partial full path name must be given or the partial is at the root level in views folder'
