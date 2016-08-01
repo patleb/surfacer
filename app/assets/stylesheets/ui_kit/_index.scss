@@ -13,11 +13,11 @@
       flex-grow: 1;
 
       @include flex-container(
-      $direction: row,
-      $wrap: wrap,
-      $justify-content: space-around,
-      $align-items: baseline,
-      $align-content: center
+        $direction: row,
+        $wrap: wrap,
+        $justify-content: space-around,
+        $align-items: baseline,
+        $align-content: center
       );
     }
   }

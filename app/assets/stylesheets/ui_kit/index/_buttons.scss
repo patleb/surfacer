@@ -4,15 +4,9 @@
     $wrap: nowrap,
     $justify-content: center,
     $align-items: center,
-    $align-content: space-around
+    $align-content: space-around,
+    $margin: $space-small 0
   );
-
-  & > * {
-    @include margin-top-bottom($space-small);
-  }
-
-  .ui-kit-link {
-  }
 
   .ui-kit-button-link {
     @include btn;
