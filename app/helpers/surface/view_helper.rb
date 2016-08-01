@@ -37,6 +37,16 @@ module Surface
       end
     end
 
+    def lightbox(source, **html_options)
+      unless (thumbnail = html_options.delete(:thumbnail))
+        thumbnail = source
+      end
+
+      css_click image_tag(source), html_options do
+        concat image_tag(thumbnail, class: 'thumbnail')
+      end
+    end
+
     def css_click(label = nil, **html_options)
       if label
         div html_options do
@@ -45,7 +55,7 @@ module Surface
           concat %{ <input type="checkbox" class="css-click" aria-hidden="true" id="#{id}"> }.html_safe
           concat content_tag(:label, label, for: id, class: 'css-click-label')
 
-          yield
+          yield if block_given?
         end
       else
         if html_options.has_key? :class
@@ -57,7 +67,7 @@ module Surface
         content_tag :label, html_options do
           concat %{ <input type="checkbox" class="css-click" aria-hidden="true"> }.html_safe
 
-          yield
+          yield if block_given?
         end
       end
     end

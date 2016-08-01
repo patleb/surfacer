@@ -1,0 +1,9 @@
+.ui-kit-index-lightbox {
+  @include lightbox;
+
+  & .lightbox {
+    @include card;
+    max-width: 300px;
+    @include margin-left-right(auto);
+  }
+}
