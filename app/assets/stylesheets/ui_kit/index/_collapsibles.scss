@@ -1,0 +1,21 @@
+.ui-kit-index-collapsibles {
+  @include flex-container(
+    $direction: column,
+    $wrap: nowrap,
+    $justify-content: flex-start,
+    $align-items: stretch,
+    $align-content: stretch
+  );
+  max-width: $media-tiny;
+
+  @include collapsible;
+
+  & .collapsible-wrapper {
+    flex-grow: 0;
+    flex-shrink: 1;
+  }
+
+  & .css-click-label, .collapsible-content {
+    background-color: white;
+  }
+}

@@ -1,0 +1,95 @@
+.ui-kit-index-form {
+  & form {
+    @include card;
+    max-width: $media-small;
+    background-color: lighten($body-background, 5%);
+    margin: $space-small auto;
+  }
+
+  & .text-types {
+    @include flex-container(
+      $direction: row,
+      $wrap: wrap,
+      $justify-content: space-between,
+      $align-items: baseline,
+      $align-content: space-between,
+      $margin: $space-small
+    );
+
+    & .textarea {
+      @include flex-container(
+        $direction: column,
+        $wrap: nowrap,
+        $justify-content: space-between,
+        $align-items: baseline,
+        $align-content: space-between
+      );
+
+      & label {
+        margin-right: $space-small;
+      }
+
+      & textarea {
+        resize: none;
+      }
+    }
+  }
+
+  & .toggle-types {
+    @include flex-container(
+      $direction: row,
+      $wrap: wrap,
+      $justify-content: space-between,
+      $align-items: baseline,
+      $align-content: space-between,
+      $margin: $space-small
+    );
+
+    & .checkbox {
+      & label:after {
+        content: "#{$nbsp}:";
+      }
+    }
+
+    & .radio {
+      & label:first-of-type:after {
+        content: "#{$nbsp}:";
+      }
+    }
+  }
+
+  & .select-types {
+    @include flex-container(
+      $direction: row,
+      $wrap: wrap,
+      $justify-content: space-between,
+      $align-items: stretch,
+      $align-content: space-between,
+      $margin: $space-small
+    );
+
+    & select {
+      min-width: 400px;
+    }
+
+    & [type=range] {
+      min-width: 400px;
+    }
+  }
+
+  & .others {
+    @include flex-container(
+      $direction: row,
+      $wrap: wrap,
+      $justify-content: space-between,
+      $align-items: baseline,
+      $align-content: flex-start,
+      $margin: $space-small
+    );
+  }
+
+  & button {
+    @include btn-type-and-color;
+    @include centered;
+  }
+}

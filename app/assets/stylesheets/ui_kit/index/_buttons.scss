@@ -1,0 +1,34 @@
+.ui-kit-index-buttons {
+  @include flex-container(
+    $direction: column,
+    $wrap: nowrap,
+    $justify-content: center,
+    $align-items: center,
+    $align-content: space-around
+  );
+
+  & > * {
+    @include margin-top-bottom($space-small);
+  }
+
+  .ui-kit-link {
+  }
+
+  .ui-kit-button-link {
+    @include btn;
+  }
+
+  .ui-kit-button-link, .ui-kit-button {
+    &.raised-primary {
+      @include btn-type-and-color('raised', $primary)
+    }
+
+    &.float-secondary {
+      @include btn-type-and-color('float', $secondary)
+    }
+
+    &.flat-null {
+      @include btn-type-and-color('flat')
+    }
+  }
+}

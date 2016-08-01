@@ -1,0 +1,24 @@
+.ui-kit-index {
+  & .sections {
+    @include flex-container(
+      $direction: row,
+      $wrap: wrap,
+      $justify-content: space-between,
+      $align-items: flex-start,
+      $align-content: stretch
+    );
+    @include padding-left-right($space-small);
+
+    & .block-of-two {
+      flex-grow: 1;
+
+      @include flex-container(
+      $direction: row,
+      $wrap: wrap,
+      $justify-content: space-around,
+      $align-items: baseline,
+      $align-content: center
+      );
+    }
+  }
+}

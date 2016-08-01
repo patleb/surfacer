@@ -1,0 +1,22 @@
+.ui-kit-index-animations {
+  flex-grow: 1;
+  align-self: center;
+
+  @include flex-container(
+    $direction: row,
+    $wrap: nowrap,
+    $justify-content: center,
+    $align-items: stretch,
+    $align-content: stretch
+  );
+
+  @each $direction in $fade-in-directions {
+    $i: index($fade-in-directions, $direction);
+
+    .ui-kit-fade-in-from-#{$direction} {
+      @include card;
+      @include fade-in-from($direction, $i * 500);
+      @include margin-left-right($space-small);
+    }
+  }
+}
