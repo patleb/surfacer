@@ -5,7 +5,10 @@ module Surface
         raise ArgumentError, 'partial full path name must be given or the partial is at the root level in views folder'
       end
 
-      div class: partial.sub(/\/_/, '-').tr('/_', '-') do
+      css_classes = [partial.sub(/\/_/, '-').tr('/_', '-')]
+      css_classes << locals.delete(:class)
+
+      div class: css_classes do
         render(partial, locals, &block)
       end
     end
