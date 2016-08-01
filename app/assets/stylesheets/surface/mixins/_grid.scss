@@ -1,0 +1,76 @@
+@mixin flex-container(
+  $direction: null,
+  $wrap: null,
+  $justify-content: null,
+  $align-items: null,
+  $align-content: null,
+  $margin: null
+) {
+  display: flex;
+  // row: left to right
+  // row-reverse: right to left
+  // column: top to bottom
+  // column-reverse: bottom to top
+  @if $direction != null and $direction != 'row' {
+    flex-direction: $direction;
+  }
+  // nowrap: single-line (could overflow)
+  // wrap: multi-line
+  // wrap-reverse: opposite to direction defined in flex-direction
+  @if $wrap != null and $wrap != 'nowrap' {
+    flex-wrap: $wrap;
+  }
+  // flex-start: items float left
+  // flex-end: items float right
+  // center: items packed around the center
+  // space-between: fill the container with space evenly distributed between items
+  // space-around: same as space-between but with space before the start and after the end items as well
+  @if $justify-content != null and $justify-content != 'flex-start' {
+    justify-content: $justify-content;
+  }
+  // stretch: items are stretched to fill the container
+  // flex-start: items margin-top edge at the container top
+  // flex-end: items margin-bottom edge at the container bottom
+  // center: items on the middle axis
+  // baseline: items are aligned such as their baselines align (ex.: bottom text)
+  @if $align-items != null and $align-items != 'stretch' {
+    align-items: $align-items;
+  }
+  // stretch: lines are stretched to fill the container
+  // flex-start: lines float top
+  // flex-end: lines float bottom
+  // center: lines packed around the middle
+  // space-between: fill the container with space evenly distributed between lines
+  // space-around: same as space-between but with space before the start and after the end lines as well
+  @if $align-content != null and $align-content != 'stretch' {
+    align-content: $align-content;
+  }
+  @if $margin != null {
+    & > * {
+      margin: $margin;
+    }
+  }
+}
+
+@mixin inline-flex-container(
+  $direction: null,
+  $wrap: null,
+  $justify-content: null,
+  $align-items: null,
+  $align-content: null,
+  $margin: null
+) {
+  @include flex-container($direction, $wrap, $justify-content, $align-items, $align-content, $margin);
+  // inline: make the flex container display inline (not the flex items)
+  display: inline-flex;
+}
+
+@mixin flex-items(
+  $grow: null,
+  $shrink: null,
+  $basis: null,
+  $align-self: null,
+  $order: null
+) {
+ // TODO
+}

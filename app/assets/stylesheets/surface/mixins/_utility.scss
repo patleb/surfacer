@@ -1,0 +1,49 @@
+@mixin margin-left-right($left-right, $right: null) {
+  margin-left: $left-right;
+
+  @if $right == null {
+    margin-right: $left-right;
+  }
+  @else {
+    margin-right: $right;
+  }
+}
+
+@mixin margin-top-bottom($top-bottom, $bottom: null) {
+  margin-top: $top-bottom;
+
+  @if $bottom == null {
+    margin-bottom: $top-bottom;
+  }
+  @else {
+    margin-bottom: $bottom;
+  }
+}
+
+@mixin padding-left-right($left-right, $right: null) {
+  padding-left: $left-right;
+
+  @if $right == null {
+    padding-right: $left-right;
+  }
+  @else {
+    padding-right: $right;
+  }
+}
+
+@mixin padding-top-bottom($top-bottom, $bottom: null) {
+  padding-top: $top-bottom;
+
+  @if $bottom == null {
+    padding-bottom: $top-bottom;
+  }
+  @else {
+    padding-bottom: $bottom;
+  }
+}
+
+@mixin centered {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}

@@ -75,9 +75,6 @@ $accent: $green !default;
 
 $body-background: $paper !default;
 
-// Grid
-$grid-columns: 12 !default;
-
 // Decorative
 $box-shadow-card: 0 2px 5px 0 rgba(0, 0, 0, 0.12), 0 2px 10px 0 rgba(0, 0, 0, 0.09) !default;
 $box-shadow-float: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12) !default;
@@ -118,3 +115,6 @@ $fade-in-directions: (top bottom left right);
 
 // Buttons
 $button-float-size: 50px !default;
+
+// Characters
+$nbsp: '\00a0';
