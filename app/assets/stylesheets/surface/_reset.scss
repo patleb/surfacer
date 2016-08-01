@@ -1,7 +1,7 @@
 //https://github.com/jaydenseric/Fix/blob/master/fix.css
 
 html {
-  box-sizing: border-box;
+  //box-sizing: border-box;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   -webkit-font-smoothing: antialiased;
@@ -9,7 +9,19 @@ html {
   -webkit-tap-highlight-color: transparent;
 }
 
+//*,
+//*:before,
+//*:after {
+//  box-sizing: inherit;
+//  font: inherit;
+//}
+//
+//img {
+//  box-sizing: content-box;
+//}
+
 body {
+  width: 100%;
   margin: 0;
   line-height: 1;
   font-family: sans-serif;
