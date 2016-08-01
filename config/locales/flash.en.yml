@@ -1,0 +1,37 @@
+en:
+  flash_messages:
+    #
+    # Add default flash messages:
+    defaults:
+      success: "Success!"
+      notice: "Info!"
+      warning: "Warning!"
+      error: "Error!"
+    #   create:
+    #     success: "Successfully created!"
+    #     error: "Something went wrong. Please take a look at the form to see what went wrong."
+    #
+    # Add flash messages for controller actions:
+    # products:
+    #   create:
+    #     success: "This is a notification"
+    #     error: "Something went wrong"
+    #
+    # Inside controller:
+    # def create
+    #   flash!(:success, :error)
+    #   redirect_to(:root)
+    # end
+    #
+    # OR
+    # 
+    # def create
+    #   redirect_to(:root, :flash => [:success, :error])
+    # end
+    #
+    # OR
+    #
+    # def create
+    #   flash_now!(:success, :error)
+    #   render("new")
+    # end
