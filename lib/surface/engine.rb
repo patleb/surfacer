@@ -3,6 +3,8 @@ module Surface
     initializer "surface.configure_application" do
       ActiveSupport.on_load :action_controller do
         ::ActionController::Base.class_eval do
+          attr_accessor :template_virtual_path
+
           module WithFlashMessages
             def redirect_to(options = {}, response_status_and_flash = {})
               messages = response_status_and_flash[:flash]
@@ -67,6 +69,21 @@ module Surface
       end
 
       ActiveSupport.on_load :action_view do
+        ::ActionView::TemplateRenderer.class_eval do
+          module WithTemplateVirtualPath
+            private
+
+            def determine_template(options)
+              template = super
+              if @view.controller.respond_to? :template_virtual_path=
+                @view.controller.template_virtual_path ||= template.virtual_path
+              end
+              template
+            end
+          end
+          prepend WithTemplateVirtualPath
+        end
+
         ::ActionView::Helpers::FormBuilder.class_eval do
           module WithCurrentValue
             def range_field(attribute, **options)
