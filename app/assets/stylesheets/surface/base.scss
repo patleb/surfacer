@@ -192,7 +192,9 @@ tr {
   border-bottom: solid 1px lighten($grey, 30%);
   will-change: background;
   &:not(.table-header) {
-    &:hover {
+    &:hover,
+    &:focus,
+    &:active {
       background: lighten($grey, 30%);
     }
   }

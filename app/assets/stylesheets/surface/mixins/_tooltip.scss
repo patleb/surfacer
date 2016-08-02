@@ -2,7 +2,9 @@
 
 .tooltip {
 	position: relative;
-	&:hover {
+  &:hover,
+  &:focus,
+  &:active {
 		&:after {
 			position: absolute;
 			content: attr(data-text);

@@ -44,7 +44,9 @@
 		box-shadow: $box-shadow-raised;
 		will-change: box-shadow, background-color;
 		color: white;
-		&:hover {
+    &:hover,
+    &:focus,
+    &:active {
 			box-shadow: $box-shadow-raised-hover;
 			background-color: lighten($color, 5%);
 		}
@@ -58,7 +60,9 @@
 		will-change: box-shadow, background-color;
 		font-size: $font-big;
 		padding: 0;
-		&:hover {
+    &:hover,
+    &:focus,
+    &:active {
 			box-shadow: $box-shadow-float-hover;
 			background-color: lighten($color, 5%);
 		}
@@ -66,7 +70,9 @@
 	@else if $type == 'flat' {
 		background-color: $body-background;
 		box-shadow: none;
-		&:hover {
+    &:hover,
+    &:focus,
+    &:active {
 			background-color: darken($body-background, 5%);
 		}
 	}
