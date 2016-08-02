@@ -1,5 +1,6 @@
-// https://github.com/IanLunn/Hover/blob/master/scss/effects/border-transitions/_underline-from-left.scss
+@import "surface/variables";
 
+// https://github.com/IanLunn/Hover/blob/master/scss/effects/border-transitions/_underline-from-left.scss
 @mixin link {
   display: inline-block;
   vertical-align: middle;

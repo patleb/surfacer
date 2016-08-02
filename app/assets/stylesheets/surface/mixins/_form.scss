@@ -1,3 +1,5 @@
+@import "surface/variables";
+
 @mixin input-label {
   &:not(.css-toggle-label) {
     color: lighten($black, 5%);

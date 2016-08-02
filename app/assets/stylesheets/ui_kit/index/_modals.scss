@@ -1,3 +1,5 @@
+@import "surface/mixins";
+
 .ui-kit-index-modals {
   @include modal;
 

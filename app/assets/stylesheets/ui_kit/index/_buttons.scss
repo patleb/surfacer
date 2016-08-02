@@ -1,3 +1,5 @@
+@import "surface/mixins";
+
 .ui-kit-index-buttons {
   @include flex-container(
     $direction: column,

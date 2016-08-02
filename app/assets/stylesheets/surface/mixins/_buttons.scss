@@ -1,3 +1,5 @@
+@import "surface/variables";
+
 @mixin btn {
 	box-shadow: $box-shadow-float;
 	cursor: pointer;

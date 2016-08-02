@@ -1,3 +1,6 @@
+@import "surface/variables";
+@import "surface/mixins/utility";
+
 @mixin lightbox {
   & .thumbnail {
     display: none;
