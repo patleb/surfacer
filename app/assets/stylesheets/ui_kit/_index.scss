@@ -33,4 +33,11 @@
       $align-content: center
     );
   }
+
+  & .typography,
+  & .tables {
+    @include card;
+    max-width: $media-small;
+    @include margin-left-right(auto);
+  }
 }

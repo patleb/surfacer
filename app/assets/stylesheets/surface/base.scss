@@ -9,6 +9,7 @@ body {
   line-height: $line-height;
   @include input-toggle;
   @include tooltips;
+  @include subtitles;
 }
 
 @-webkit-keyframes bugfix {

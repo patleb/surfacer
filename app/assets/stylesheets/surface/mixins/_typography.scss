@@ -4,3 +4,9 @@
   font-style: italic;
   color: darken($grey, 5%);
 }
+
+@mixin subtitles {
+  & .subtitle {
+    @include subtitle;
+  }
+}
