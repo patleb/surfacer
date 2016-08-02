@@ -216,38 +216,37 @@
 @mixin input-toggle {
   & .css-toggle {
     display: none;
-    &:checked {
-      + .css-toggle-label {
-        background: lighten($accent, 25%);
-        &:after {
-          background: $accent;
-          margin-left: 16px;
-        }
+
+    & + .css-toggle-label {
+      display: flex;
+      cursor: pointer;
+      width: 32px;
+      height: 16px;
+      border-radius: 7px;
+      margin-top: $space-tiny;
+      background: $grey;
+      transition: background 0.3s $cubic;
+      will-change: background;
+      &:after {
+        content: '';
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background: lighten($grey, 25%);
+        margin-top: 0;
+        margin-left: -1px;
+        transition: all 0.3s ease;
+        will-change: background, margin-left;
+        box-shadow: $box-shadow-card;
       }
     }
-  }
 
-  & .css-toggle + .css-toggle-label {
-    display: flex;
-    width: 30px;
-    height: 14px;
-    border-radius: 7px;
-    margin-top: $space-tiny;
-    background: $grey;
-    transition: background 0.3s $cubic;
-    will-change: background;
-    &:after {
-      content: '';
-      width: 14px;
-      height: 14px;
-      border-radius: 50%;
-      background: lighten($grey, 25%);
-      cursor: pointer;
-      margin-top: 0;
-      margin-left: -1px;
-      transition: all 0.3s ease;
-      will-change: background, margin-left;
-      box-shadow: $box-shadow-card;
+    &:checked + .css-toggle-label {
+      background: lighten($accent, 25%);
+      &:after {
+        background: $accent;
+        margin-left: 16px;
+      }
     }
   }
 }
