@@ -14,7 +14,7 @@ Gem::Specification.new do |s|
   s.description = "Material Design, CSS only framework."
   s.license     = "MIT"
 
-  s.files = Dir["{app,lib}/**/*", "MIT-LICENSE", "README.md"]
+  s.files = Dir["{app,config,lib}/**/*", "MIT-LICENSE", "README.md"]
 
   s.add_dependency "record_tag_helper", "~> 1.0"
 end
