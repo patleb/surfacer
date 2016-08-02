@@ -9,9 +9,11 @@
 	transition: background-color 0.3s $cubic, box-shadow 0.3s $cubic;
 	will-change: background-size, background-image;
 	padding: $space-small $space-med;
-	margin: auto;
 	font-family: Roboto;
 	border: 0;
+  &:before {
+    content: none;
+  }
 	&:after {
 		content: '';
 		transition: none;
