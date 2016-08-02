@@ -4,10 +4,16 @@
 @import url(https://fonts.googleapis.com/icon?family=Material+Icons);
 
 body {
+  -webkit-animation: bugfix infinite 1s;
   background: $body-background;
   line-height: $line-height;
   @include input-toggle;
   @include tooltips;
+}
+
+@-webkit-keyframes bugfix {
+  from { padding: 0; }
+  to { padding: 0; }
 }
 
 div,
