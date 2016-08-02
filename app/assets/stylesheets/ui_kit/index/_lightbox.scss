@@ -4,6 +4,5 @@
   & .lightbox {
     @include card;
     max-width: 300px;
-    @include margin-left-right(auto);
   }
 }

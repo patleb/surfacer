@@ -23,8 +23,8 @@ module Surface
       end
     end
 
-    def alert(alert, message)
-      css_click class: 'alert-wrapper' do
+    def alert(alert, message, **html_options)
+      css_click html_options do
         concat div(message, class: ['alert-message', alert])
       end
     end
@@ -40,6 +40,14 @@ module Surface
     def lightbox(source, **html_options)
       css_click image_tag(source), html_options do
         concat image_tag(source, class: 'thumbnail')
+      end
+    end
+
+    def modal(label, **html_options)
+      css_click label, html_options do
+        concat(div(class: 'modal-content') do
+          yield
+        end)
       end
     end
 

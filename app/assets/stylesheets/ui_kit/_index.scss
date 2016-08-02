@@ -21,4 +21,14 @@
       );
     }
   }
+
+  & .popups {
+    @include flex-container(
+      $direction: row,
+      $wrap: wrap,
+      $justify-content: center,
+      $align-items: center,
+      $align-content: center
+    );
+  }
 }

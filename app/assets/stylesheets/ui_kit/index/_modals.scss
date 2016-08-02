@@ -1,0 +1,10 @@
+.ui-kit-index-modals {
+  @include modal;
+
+  @include card;
+  margin-left: $space-small;
+
+  & .css-click-label {
+    @include link;
+  }
+}
