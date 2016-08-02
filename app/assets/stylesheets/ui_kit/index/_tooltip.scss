@@ -1,0 +1,7 @@
+@import "surface/mixins";
+
+.ui-kit-index-tooltip {
+  @include card;
+  margin: $space-small;
+  max-width: $media-tiny;
+}

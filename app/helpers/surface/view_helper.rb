@@ -51,6 +51,26 @@ module Surface
       end
     end
 
+    def tooltip(text = nil, **html_options)
+      if (tooltip_class = html_options.delete(:to))
+        tooltip_class = "tooltip-#{tooltip_class}"
+      else
+        tooltip_class = "tooltip"
+      end
+
+      add_class(tooltip_class, html_options)
+
+      html_options['data-tooltip'] = html_options.delete(:tip)
+
+      if text
+        span text, html_options
+      else
+        span html_options do
+          yield
+        end
+      end
+    end
+
     def css_click(label = nil, **html_options)
       if label
         div html_options do
@@ -62,11 +82,7 @@ module Surface
           yield if block_given?
         end
       else
-        if html_options.has_key? :class
-          html_options[:class] << ' css-click-label'
-        else
-          html_options[:class] = 'css-click-label'
-        end
+        add_class('css-click-label', html_options)
 
         content_tag :label, html_options do
           concat %{ <input type="checkbox" class="css-click" aria-hidden="true"> }.html_safe
@@ -77,18 +93,37 @@ module Surface
     end
 
     def div(*args, &block)
+      _with_tag :div, *args, &block
+    end
+
+    def span(*args, &block)
+      _with_tag :span, *args, &block
+    end
+
+    def add_class(value, html_options)
+      with_space = " " << value
+      if html_options.has_key? :class
+        html_options[:class] << with_space
+      else
+        html_options[:class] = with_space
+      end
+    end
+
+    private
+
+    def _with_tag(tag, *args, &block)
       options = args.extract_options!
       object_or_text = args.first
 
       case object_or_text
       when String, Symbol, nil
         if block
-          content_tag :div, capture(&block), options
+          content_tag tag, capture(&block), options
         else
-          content_tag :div, object_or_text, options
+          content_tag tag, object_or_text, options
         end
       else
-        div_for object_or_text, options, &block
+        content_tag_for tag, object_or_text, options, &block
       end
     end
   end

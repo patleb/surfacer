@@ -1,20 +1,53 @@
 @import "surface/variables";
 
-.tooltip {
-	position: relative;
+@mixin tooltip($direction: 'bottom') {
+  position: relative;
   &:hover,
   &:focus,
   &:active {
-		&:after {
-			position: absolute;
-			content: attr(data-text);
-			background: lighten($grey, 10%);
-			border-radius: $border-radius-small;
-			padding: $space-small*0.8;
-			bottom: -2.5em;
-			left: 50%;
-			transform: translateX(-50%);
-			z-index: 2;
-		}
-	}
+    &:after {
+      position: absolute;
+      content: attr(data-tooltip);
+      background: lighten($primary, 10%);
+      border-radius: $border-radius-small;
+      padding: $space-small*0.8;
+      z-index: $tooltip-z-index;
+      @if $direction == 'top' {
+        top: -2.5em;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      @else if $direction == 'right' {
+        top: 50%;
+        transform: translate(0.3em, -50%);
+      }
+      @else if $direction == 'bottom' {
+        bottom: -2.5em;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      @else if $direction == 'left' {
+        top: 50%;
+        left: -50%;
+        transform: translate(calc(-100% + 1.9em), -50%);
+      }
+      @else {
+        @error '$direction must be top, bottom, left or right'
+      }
+    }
+  }
+}
+
+@mixin tooltips {
+  $directions: (top, right, bottom, left);
+
+  @each $direction in $directions {
+    & .tooltip-#{$direction} {
+      @include tooltip($direction);
+    }
+  }
+
+  & .tooltip {
+    @include tooltip;
+  }
 }

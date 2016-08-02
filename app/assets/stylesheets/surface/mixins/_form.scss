@@ -142,7 +142,7 @@
 %range-value {
   position: relative;
   &:before {
-    content: attr(data-value);
+    content: attr(data-range);
     color: darken($primary, 10%);
     position: absolute;
     background: transparent;

@@ -88,8 +88,8 @@ module Surface
           module WithCurrentValue
             def range_field(attribute, **options)
               if options.delete(:current)
-                options[:oninput] = options[:onchange] = "this.setAttribute('data-value', this.value);"
-                options['data-value'] = options[:value] = object.send(attribute) || options[:value]
+                options[:oninput] = options[:onchange] = "this.setAttribute('data-range', this.value);"
+                options['data-range'] = options[:value] = object.send(attribute) || options[:value]
               end
 
               super
@@ -98,11 +98,7 @@ module Surface
           prepend WithCurrentValue
 
           def toggle_field(attribute, **options)
-            if options.has_key? :class
-              options[:class] << ' css-toggle'
-            else
-              options[:class] = 'css-toggle'
-            end
+            @template.add_class('css-toggle', options)
 
             @template.concat check_box(attribute, options)
 
