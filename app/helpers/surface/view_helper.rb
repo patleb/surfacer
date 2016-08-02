@@ -23,31 +23,29 @@ module Surface
       end
     end
 
-    def alert(alert, message, **html_options)
-      css_click html_options do
-        concat div(message, class: ['alert-message', alert])
-      end
+    def alert(alert, message)
+      css_click div(message, class: ['alert-message', alert])
     end
 
-    def collapsible(label, **html_options)
-      css_click label, html_options do
-        concat(div(class: 'collapsible-content') do
+    def collapsible(label)
+      css_click label do
+        div(class: 'collapsible-content') do
           yield
-        end)
+        end
       end
     end
 
-    def lightbox(source, **html_options)
-      css_click image_tag(source), html_options do
-        concat image_tag(source, class: 'thumbnail')
+    def lightbox(source)
+      css_click image_tag(source) do
+        image_tag(source, class: 'thumbnail')
       end
     end
 
-    def modal(label, **html_options)
-      css_click label, html_options do
-        concat(div(class: 'modal-content') do
+    def modal(label)
+      css_click label do
+        div(class: 'modal-content') do
           yield
-        end)
+        end
       end
     end
 
@@ -71,26 +69,22 @@ module Surface
       end
     end
 
-    def css_click(label = nil, **html_options)
-      if label
-        div html_options do
-          id = SecureRandom.hex
+    def css_click(label_content)
+      id = SecureRandom.hex
 
-          concat %{ <input type="checkbox" class="css-click" aria-hidden="true" id="#{id}"> }.html_safe
-          concat content_tag(:label, label, for: id, class: 'css-click-label')
+      concat %{ <input type="checkbox" class="css-click" aria-hidden="true" id="#{id}"> }.html_safe
 
-          yield if block_given?
-        end
+      label = content_tag(:label, label_content, for: id, class: 'css-click-label', onclick: '')
+      if block_given?
+        concat label
+        yield
       else
-        add_class('css-click-label', html_options)
-
-        content_tag :label, html_options do
-          concat %{ <input type="checkbox" class="css-click" aria-hidden="true"> }.html_safe
-
-          yield if block_given?
-        end
+        label
       end
     end
+
+    # TODO #url-hash:target --> accordion
+    # TODO span:focus ~ .class --> for when click outside the element to reset state (unlike the checkbox)
 
     def div(*args, &block)
       _with_tag :div, *args, &block

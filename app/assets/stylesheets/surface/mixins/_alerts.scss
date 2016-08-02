@@ -9,7 +9,7 @@
 	& .css-click {
 		display: none;
 
-		&:checked + .alert-message {
+		&:checked + .css-click-label {
 			display: none;
 		}
 	}
