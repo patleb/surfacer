@@ -1,5 +1,6 @@
 @import "surface/variables";
 
+// TODO add style for mobile
 @mixin tooltip($direction: 'bottom') {
   position: relative;
   &:hover,
