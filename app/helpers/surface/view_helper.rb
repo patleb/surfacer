@@ -38,12 +38,8 @@ module Surface
     end
 
     def lightbox(source, **html_options)
-      unless (thumbnail = html_options.delete(:thumbnail))
-        thumbnail = source
-      end
-
       css_click image_tag(source), html_options do
-        concat image_tag(thumbnail, class: 'thumbnail')
+        concat image_tag(source, class: 'thumbnail')
       end
     end
 
