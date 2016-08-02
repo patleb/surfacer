@@ -13,11 +13,10 @@
 	}
 
 	& .alert-message {
-		@include card;
 		position: relative;
 		text-align: center;
-		padding: $flash-padding;
-		margin: $flash-margin;
+		padding: $space-small;
+		margin: $space-tiny $space-small;
 
 		@each $state, $colors in $flash-states {
 			&.#{$state} {

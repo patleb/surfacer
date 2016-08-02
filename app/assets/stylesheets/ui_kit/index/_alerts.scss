@@ -1,3 +1,7 @@
 .ui-kit-index-alerts {
   @include alerts;
+
+  & .alert-message {
+    @include card;
+  }
 }

@@ -106,8 +106,6 @@ $flash-states: (
   warning: (text: darken($yellow, 40%), background: transparentize($yellow, 0.85)),
   error: (text: darken($red, 30%), background: transparentize($red, 0.80))
 );
-$flash-padding: $space-small !default;
-$flash-margin: $space-tiny $space-small !default;
 
 // Fade in
 $fade-in-translation: $space-small;
