@@ -112,10 +112,8 @@
           & ~ li {
             display: inline-flex;
           }
-        }
-        &:hover {
           &:before {
-            background: lighten($primary, 5%);
+            background: $accent;
           }
         }
         &:before {
