@@ -1,6 +1,6 @@
 <% content = "Quisque egestas, purus in tempor vulputate, diam augue mollis quam, quis elementum ipsum ex a risus. Quisque sed augue porta, facilisis felis vitae, cursus mi. Nullam mollis magna eget tincidunt mollis. Sed suscipit placerat ultricies. Sed eget lorem et ipsum ultricies congue eu a enim. Nam quis ex nec lorem dignissim suscipit eu ut felis. Vivamus molestie felis id purus congue, vel ultrices sem molestie." %>
 
-<% %w[tabs accordion tabs-vertical].each do |type| %>
+<% %w[tabs accordion vertical-tabs].each do |type| %>
   <div class="<%= type %>">
     <% tabs ['Tab 1', 'Tab 2', 'Tab 3', 'Tab 4'], 0 do |label, i| %>
       <p>

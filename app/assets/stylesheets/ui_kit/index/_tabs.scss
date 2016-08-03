@@ -11,8 +11,8 @@
     margin: $space-small;
   }
 
-  & .tabs-vertical {
-    @include tabs-vertical($margin-right: $space-small/2);
+  & .vertical-tabs {
+    @include vertical-tabs($margin-right: $space-small/2);
     @include centered;
     margin: $space-small/2;
   }

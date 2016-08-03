@@ -98,7 +98,7 @@
   }
 }
 
-@mixin tabs-vertical($tab-width: 10%, $margin-right: 0) {
+@mixin vertical-tabs($tab-width: 10%, $margin-right: 0) {
   @include flex-container(
     $direction: column,
     $wrap: wrap,
@@ -125,7 +125,7 @@
     display: none;
     width: calc(100% - #{$tab-width} - #{2 * $margin-right});
     position: absolute;
-    left: 10%;
+    left: $tab-width;
     order: 1;
     max-width: calc(100% - #{$tab-width} - #{2 * $margin-right});
     z-index: 12;
