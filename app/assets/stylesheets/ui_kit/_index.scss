@@ -1,10 +1,6 @@
 @import "surface/mixins";
 
 .ui-kit-index {
-  max-width: $media-med;
-  @include margin-left-right(auto);
-  margin-bottom: $space-big;
-
   & .sections {
     @include flex-container(
       $direction: row,
@@ -14,6 +10,7 @@
       $align-content: stretch
     );
     @include padding-left-right($space-small);
+    @include margin-left-right($space-big);
 
     & .block-of-two {
       flex-grow: 1;
@@ -38,9 +35,12 @@
     );
   }
 
-  & .ui-kit-index-typography,
+  & .ui-kit-index-typography {
+    @include margin-left-right($space-big);
+  }
+
   & .ui-kit-index-tables {
     @include card;
-    @include margin-top-bottom($space-small);
+    margin: $space-small;
   }
 }

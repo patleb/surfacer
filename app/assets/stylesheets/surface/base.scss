@@ -1,5 +1,4 @@
 @import "surface/mixins";
-
 @import url(https://fonts.googleapis.com/css?family=Roboto);
 @import url(https://fonts.googleapis.com/icon?family=Material+Icons);
 
@@ -147,7 +146,7 @@ header {
   padding-top: $space-small;
   padding-bottom: $space-small;
   background: $primary;
-  margin-bottom: $space-big*1.75;
+  margin-bottom: $space-big;
   h1,
   h2,
   h3 {

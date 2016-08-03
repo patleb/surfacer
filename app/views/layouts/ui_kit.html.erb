@@ -16,8 +16,21 @@
   <![endif]-->
 </head>
 <body class="<%= body_class %>">
+  <header>
+    <%= component 'ui_kit/index/alerts' %>
+    <%= component 'ui_kit/index/nav' %>
+  </header>
 
-  <%= yield %>
+  <aside>
 
+  </aside>
+
+  <main role="main">
+    <%= yield %>
+  </main>
+
+  <footer>
+    <%= component 'ui_kit/index/typography' %>
+  </footer>
 </body>
 </html>
