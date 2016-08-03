@@ -1,6 +1,5 @@
 @import "surface/mixins";
 @import url(https://fonts.googleapis.com/css?family=Roboto);
-@import url(https://fonts.googleapis.com/icon?family=Material+Icons);
 
 body {
   -webkit-animation: bugfix infinite 1s;
@@ -154,10 +153,8 @@ header {
   }
   @media screen and (max-width: $media-med) {
     margin-bottom: $space-big*0.85;
-    padding-top: $space-med;
   }
   @media screen and (max-width: $media-small) {
-    padding-top: $space-big;
     padding-bottom: $space-small*0.5;
     margin-bottom: $space-small*0.85;
   }

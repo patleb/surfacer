@@ -17,4 +17,5 @@ Gem::Specification.new do |s|
   s.files = Dir["{app,config,lib}/**/*", "MIT-LICENSE", "README.md"]
 
   s.add_dependency "record_tag_helper", "~> 1.0"
+  s.add_dependency "material_icons", "~> 2.2"
 end

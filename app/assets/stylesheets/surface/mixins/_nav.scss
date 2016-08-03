@@ -1,3 +1,140 @@
 @mixin nav {
+  z-index: 900;
+  position: relative;
 
+  & li {
+    cursor: pointer;
+    position: relative;
+    color: $body-background;
+    background: $primary;
+    padding: $space-small;
+    transition: none;
+    box-shadow: $box-shadow-raised;
+    margin: 2px;
+    white-space: nowrap;
+    &:focus,
+    &:active {
+      & > ul {
+        display: flex;
+      }
+    }
+    &:hover {
+      background: lighten($primary, 5%);
+      color: white;
+    }
+    & a:before {
+      content: none;
+    }
+    &:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: $accent;
+      height: 4px;
+      transform: translateY(4px);
+    }
+  }
+
+  & ul {
+    z-index: 999;
+    margin: 0;
+  }
+
+  & > ul {
+    @include flex-container(
+      $direction: row,
+      $wrap: wrap,
+      $justify-content: flex-end,
+      $align-items: baseline,
+      $align-content: flex-start
+    );
+    margin-right: $space-small;
+  }
+
+  & li ul {
+    position: absolute;
+    @include flex-container(
+      $direction: column,
+      $wrap: nowrap,
+      $justify-content: center,
+      $align-items: center,
+      $align-content: center
+    );
+    padding: $space-small;
+    right: 0;
+    left: auto;
+    z-index: 900;
+    background: $primary;
+    box-shadow: $box-shadow-raised;
+    display: none;
+    & li {
+      width: 100%;
+    }
+    & :after {
+
+    }
+  }
+
+  & > ul > li:first-of-type {
+    display: none;
+  }
+
+  @media screen and (max-width: $media-small) {
+    position: absolute;
+    right: -$space-small;
+    top: 0;
+
+    & > ul {
+      @include inline-flex-container(
+        $direction: column,
+        $wrap: wrap,
+        $justify-content: center,
+        $align-items: baseline,
+        $align-content: flex-start
+      );
+      margin-right: $space-small;
+    }
+
+    & li {
+      width: 100%;
+      padding: $space-tiny;
+    }
+
+    & > ul > li {
+      &:first-of-type {
+        display: inline-flex;
+        &:focus,
+        &:active {
+          & ~ li {
+            display: inline-flex;
+          }
+        }
+        &:hover {
+          &:before {
+            background: lighten($primary, 5%);
+          }
+        }
+        &:before {
+          background: $primary;
+        }
+        &:after {
+          content: 'menu';
+          transform: translateY(-3px);
+        }
+      }
+      &:not(:first-of-type) {
+        display: none;
+      }
+    }
+
+    & li ul {
+      position: relative;
+      display: inline-flex;
+      margin: 0;
+      padding: 0;
+      margin-left: $space-small;
+    }
+  }
 }
