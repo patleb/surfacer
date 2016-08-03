@@ -69,10 +69,20 @@ module Surface
       end
     end
 
+    def tabs(labels, selected = nil)
+      css_select(labels, selected) do |label_content, i|
+        concat(div(class: 'tab-content') do
+          yield label_content, i
+        end)
+      end
+    end
+
     def css_click(label_content)
       id = SecureRandom.hex
 
-      concat %{ <input type="checkbox" class="css-click" aria-hidden="true" id="#{id}"> }.html_safe
+      concat %{
+        <input type="checkbox" class="css-click" aria-hidden="true" id="#{id}">
+      }.html_safe
 
       label = content_tag(:label, label_content, for: id, class: 'css-click-label', onclick: '')
       if block_given?
@@ -81,6 +91,27 @@ module Surface
       else
         label
       end
+    end
+
+    def css_select(labels, selected = nil)
+      name = SecureRandom.hex
+
+      labels.each_with_index do |label_content, i|
+        id = "#{name}-#{i}"
+        checked = (i == selected) ? 'checked' : ''
+
+        concat %{
+          <input type="radio" class="css-select" aria-hidden="true" name="#{name}" id="#{id}" #{checked}>
+        }.html_safe
+
+        label = content_tag(:label, label_content, for: id, class: 'css-select-label', onclick: '')
+        if block_given?
+          concat label
+          yield label_content, i
+        else
+          label
+        end
+      end.reduce(&:<<)
     end
 
     # TODO #url-hash:target --> accordion

@@ -1,6 +1,10 @@
 @import "surface/mixins";
 
 .ui-kit-index {
+  max-width: $media-med;
+  @include margin-left-right(auto);
+  margin-bottom: $space-big;
+
   & .sections {
     @include flex-container(
       $direction: row,
@@ -34,10 +38,9 @@
     );
   }
 
-  & .typography,
-  & .tables {
+  & .ui-kit-index-typography,
+  & .ui-kit-index-tables {
     @include card;
-    max-width: $media-small;
-    @include margin-left-right(auto);
+    @include margin-top-bottom($space-small);
   }
 }

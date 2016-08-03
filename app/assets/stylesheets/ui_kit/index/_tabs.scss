@@ -1,0 +1,19 @@
+@import "surface/mixins";
+
+.ui-kit-index-tabs {
+  & .tabs {
+    @include tabs;
+    margin: $space-small;
+  }
+
+  & .accordion {
+    @include accordion;
+    margin: $space-small;
+  }
+
+  & .tabs-vertical {
+    @include tabs-vertical($margin-right: $space-small/2);
+    @include centered;
+    margin: $space-small/2;
+  }
+}

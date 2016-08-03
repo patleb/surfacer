@@ -88,7 +88,11 @@ button {
 }
 
 label {
-  @include input-label;
+  &:not(.css-click-label),
+  &:not(.css-select-label),
+  &:not(.css-toggle-label) {
+    @include input-label;
+  }
 }
 
 input {
@@ -117,12 +121,17 @@ textarea {
   @include input-textarea;
 }
 
-input[type="checkbox"]:not(.css-click) {
-  @include input-checkbox;
+input[type="checkbox"] {
+  &:not(.css-click),
+  &:not(.css-toggle) {
+    @include input-checkbox;
+  }
 }
 
 input[type="radio"] {
-  @include input-radio;
+  &:not(.css-select) {
+    @include input-radio;
+  }
 }
 
 select {

@@ -1,9 +1,5 @@
-@import "surface/variables";
-
 @mixin input-label {
-  &:not(.css-toggle-label) {
-    color: lighten($black, 5%);
-  }
+  color: lighten($black, 5%);
 }
 
 @mixin input-text {
@@ -43,44 +39,42 @@
 }
 
 @mixin input-checkbox {
-  &:not(.css-toggle) {
-    position: relative;
-    cursor: pointer;
-    &:before {
-      content: '';
-      width: 16px;
-      height: 16px;
-      border: solid 2px $primary;
-      border-radius: $border-radius-small;
-      background: white;
-      position: absolute;
-    }
+  position: relative;
+  cursor: pointer;
+  &:before {
+    content: '';
+    width: 16px;
+    height: 16px;
+    border: solid 2px $primary;
+    border-radius: $border-radius-small;
+    background: white;
+    position: absolute;
+  }
+  &:after {
+    content: '✓';
+    color: white;
+    background: $primary;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 16px;
+    height: 16px;
+    border: solid 2px $primary;
+    border-radius: $border-radius-small;
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-end;
+    opacity: 0;
+    transition: opacity 0.3s $cubic;
+    will-change: opacity;
+  }
+  &:checked {
     &:after {
-      content: '✓';
-      color: white;
-      background: $primary;
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 16px;
-      height: 16px;
-      border: solid 2px $primary;
-      border-radius: $border-radius-small;
-      display: inline-flex;
-      align-items: center;
-      justify-content: flex-end;
-      opacity: 0;
-      transition: opacity 0.3s $cubic;
-      will-change: opacity;
+      opacity: 1;
     }
-    &:checked {
-      &:after {
-        opacity: 1;
-      }
-    }
-    &:focus {
-      outline: none;
-    }
+  }
+  &:focus {
+    outline: none;
   }
 }
 

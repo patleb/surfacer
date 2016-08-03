@@ -1,5 +1,3 @@
-@import "surface/variables";
-
 @mixin margin-left-right($left-right, $right: null) {
   margin-left: $left-right;
 

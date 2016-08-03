@@ -15,9 +15,5 @@
   & .collapsible-wrapper {
     flex-grow: 0;
     flex-shrink: 1;
-
-    & > * {
-      background-color: white;
-    }
   }
 }

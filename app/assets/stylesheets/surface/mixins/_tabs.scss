@@ -1,0 +1,145 @@
+%tabs-base {
+  & .css-select-label {
+    flex-grow: 1;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+    background: $primary;
+    color: $body-background;
+    padding: $space-small;
+    &:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: $accent;
+      height: 4px;
+      transform: translateY(4px);
+    }
+    &:hover,
+    &:focus,
+    &:active {
+      background: lighten($primary, 5%);
+    }
+  }
+
+  & .tab-content {
+    @include card;
+  }
+
+  & .css-select {
+    &:checked + .css-select-label {
+      background: lighten($primary, 5%);
+      color: white;
+      &:before {
+        transform: translateY(0);
+      }
+    }
+  }
+}
+
+@mixin tabs {
+  @include inline-flex-container(
+    $direction: row,
+    $wrap: wrap,
+    $justify-content: space-between,
+    $align-items: flex-start,
+    $align-content: flex-start
+  );
+
+  @extend %tabs-base;
+
+  & .css-select-label {
+    white-space: nowrap;
+    order: 1;
+  }
+
+  & .tab-content {
+    display: none;
+    width: 100%;
+    order: 2;
+  }
+
+  & .css-select {
+    display: none;
+    &:checked + .css-select-label + .tab-content {
+      display: inline-block;
+    }
+  }
+}
+
+@mixin accordion {
+  @include flex-container(
+    $direction: column,
+    $wrap: wrap,
+    $justify-content: flex-start,
+    $align-items: flex-start,
+    $align-content: flex-start
+  );
+
+  @extend %tabs-base;
+
+  & .css-select-label {
+    white-space: nowrap;
+    width: 100%;
+    text-align: left;
+  }
+
+  & .tab-content {
+    display: none;
+  }
+
+  & .css-select {
+    display: none;
+    &:checked + .css-select-label + .tab-content {
+      display: inline-block;
+    }
+  }
+}
+
+@mixin tabs-vertical($tab-width: 10%, $margin-right: 0) {
+  @include flex-container(
+    $direction: column,
+    $wrap: wrap,
+    $justify-content: flex-start,
+    $align-items: flex-start,
+    $align-content: flex-start
+  );
+  position: relative;
+
+  @extend %tabs-base;
+
+  & .css-select-label {
+    width: $tab-width;
+    order: 2;
+    &:before {
+      width: 4px;
+      height: 100%;
+      transform: translateX(-4px);
+    }
+    z-index: 10;
+  }
+
+  & .tab-content {
+    display: none;
+    width: calc(100% - #{$tab-width} - #{2 * $margin-right});
+    position: absolute;
+    left: 10%;
+    order: 1;
+    max-width: calc(100% - #{$tab-width} - #{2 * $margin-right});
+    z-index: 12;
+  }
+
+  & .css-select {
+    display: none;
+    &:checked + .css-select-label {
+      &:before {
+        transform: translateX(0);
+      }
+    }
+    &:checked + .css-select-label + .tab-content {
+      display: block;
+    }
+  }
+}
