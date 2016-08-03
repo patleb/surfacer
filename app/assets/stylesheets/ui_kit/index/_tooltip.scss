@@ -4,4 +4,10 @@
   @include card;
   margin: $space-small;
   max-width: $media-tiny;
+  [class*=tooltip] {
+    color: $accent;
+    &:after {
+      color: $black;
+    }
+  }
 }
