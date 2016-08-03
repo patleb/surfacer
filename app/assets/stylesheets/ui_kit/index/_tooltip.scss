@@ -5,7 +5,7 @@
   margin: $space-small;
   max-width: $media-tiny;
   [class*=tooltip] {
-    color: $accent;
+    color: $primary;
     &:after {
       color: $black;
     }
