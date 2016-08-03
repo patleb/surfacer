@@ -12,6 +12,7 @@
     box-shadow: $box-shadow-raised;
     margin: 2px;
     white-space: nowrap;
+    &:hover,
     &:focus,
     &:active {
       & > ul {
@@ -107,6 +108,7 @@
         display: inline-flex;
         &:focus,
         &:active {
+          width: auto;
           & ~ li {
             display: inline-flex;
           }
