@@ -32,7 +32,7 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background: $accent;
+      background: darken($primary, 5%);
       height: 4px;
       transform: translateY(4px);
     }
@@ -113,7 +113,7 @@
             display: inline-flex;
           }
           &:before {
-            background: $accent;
+            background: darken($primary, 5%);
           }
         }
         &:before {
