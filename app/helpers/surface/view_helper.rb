@@ -77,6 +77,23 @@ module Surface
       end
     end
 
+    def nav(**html_options)
+      ul html_options do
+        concat li(tabindex: 0, class: 'material-icons')
+
+        yield
+      end
+    end
+
+    def nav_dropdown(text, **html_options)
+      li tabindex: 0 do
+        concat text
+        concat(ul(html_options) do
+          yield
+        end)
+      end
+    end
+
     def css_click(label_content)
       id = SecureRandom.hex
 
@@ -117,12 +134,16 @@ module Surface
     # TODO #url-hash:target --> accordion
     # TODO span:focus ~ .class --> for when click outside the element to reset state (unlike the checkbox)
 
-    def div(*args, &block)
-      _with_tag :div, *args, &block
-    end
-
-    def span(*args, &block)
-      _with_tag :span, *args, &block
+    %i[
+      div
+      span
+      ul
+      li
+      a
+    ].each do |tag|
+      define_method tag do |*args, &block|
+        _with_tag tag, *args, &block
+      end
     end
 
     def add_class(value, html_options)

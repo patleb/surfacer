@@ -1,16 +1,12 @@
-<ul>
-  <li tabindex="0" class="material-icons"></li>
+<%= nav do %>
   <li><a href="#" onclick="return false;">Nav link</a></li>
   <li><a href="#" onclick="return false;">Hello</a></li>
   <li><a href="#" onclick="return false;">Contact</a></li>
-  <li tabindex="0">
-    Dropdown
-    <ul>
-      <li><a href="#" onclick="return false;">D Link Test</a></li>
-      <li><a href="#" onclick="return false;">D Link</a></li>
-      <li><a href="#" onclick="return false;">D Link</a></li>
-      <li><a href="#" onclick="return false;">D Link</a></li>
-    </ul>
-  </li>
+  <%= nav_dropdown 'Dropdown' do %>
+    <li><a href="#" onclick="return false;">D Link Test</a></li>
+    <li><a href="#" onclick="return false;">D Link</a></li>
+    <li><a href="#" onclick="return false;">D Link</a></li>
+    <li><a href="#" onclick="return false;">D Link</a></li>
+  <% end %>
   <li><a href="#" onclick="return false;">Portfolio</a></li>
-</ul>
+<% end %>
