@@ -71,11 +71,11 @@
     );
 
     & select {
-      min-width: 400px;
+      width: 400px;
     }
 
     & [type=range] {
-      min-width: 400px;
+      width: 400px;
     }
   }
 

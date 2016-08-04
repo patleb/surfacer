@@ -6,7 +6,7 @@
 
   @include flex-container(
     $direction: row,
-    $wrap: nowrap,
+    $wrap: wrap,
     $justify-content: center,
     $align-items: stretch,
     $align-content: stretch
