@@ -1,0 +1,5 @@
+@import "surface/shared";
+
+.layouts-ui-kit-typography {
+  @include margin-left-right($space-big);
+}

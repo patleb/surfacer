@@ -35,10 +35,6 @@
     );
   }
 
-  & .ui-kit-index-typography {
-    @include margin-left-right($space-big);
-  }
-
   & .ui-kit-index-tables {
     @include card;
     margin: $space-small;
