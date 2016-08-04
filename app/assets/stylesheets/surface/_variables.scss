@@ -101,10 +101,10 @@ $media-tiny: 520px !default;
 
 // Flash Message States
 $flash-states: (
-  notice: (text: darken($blue, 40%), background: transparentize($blue, 0.50)),
-  success: (text: darken($green, 40%), background: transparentize($green, 0.50)),
-  warning: (text: darken($yellow, 50%), background: transparentize($yellow, 0.55)),
-  error: (text: darken($red, 40%), background: transparentize($red, 0.50))
+  notice: (text: darken($blue, 40%), background: transparentize($blue, 0.40)),
+  success: (text: darken($green, 40%), background: transparentize($green, 0.40)),
+  warning: (text: darken($yellow, 50%), background: transparentize($yellow, 0.45)),
+  error: (text: darken($red, 40%), background: transparentize($red, 0.40))
 );
 
 // Fade in
