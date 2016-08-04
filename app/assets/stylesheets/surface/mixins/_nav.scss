@@ -73,9 +73,6 @@
     & li {
       width: 100%;
     }
-    & :after {
-
-    }
   }
 
   & > ul > li:first-of-type {
@@ -108,7 +105,6 @@
         display: inline-flex;
         &:focus,
         &:active {
-          width: auto;
           & ~ li {
             display: inline-flex;
           }
