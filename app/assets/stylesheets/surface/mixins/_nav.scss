@@ -93,7 +93,7 @@
 
     // menu
     & > ul {
-      @include inline-flex-container(
+      @include flex-container(
         $direction: column,
         $wrap: wrap,
         $justify-content: center,
@@ -115,11 +115,11 @@
 
       // mobile menu icon item
       &:first-of-type {
-        display: inline-flex;
+        display: flex;
         &:focus,
         &:active {
           & ~ li {
-            display: inline-flex;
+            display: flex;
           }
           &:before {
             background: darken($primary, 5%);
@@ -138,10 +138,11 @@
     // dropdowns
     & li ul {
       position: relative;
-      display: inline-flex;
+      display: flex;
       margin: 0;
       padding: 0;
       margin-left: $space-small;
+      margin-top: 3px;
     }
   }
 }

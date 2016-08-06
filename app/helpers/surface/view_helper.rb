@@ -77,18 +77,18 @@ module Surface
       end
     end
 
-    def nav(**html_options)
-      ul html_options do
+    def nav
+      ul do
         concat li(tabindex: 0, class: 'material-icons')
 
         yield
       end
     end
 
-    def nav_dropdown(text, **html_options)
+    def nav_dropdown(text)
       li tabindex: 0 do
         concat text
-        concat(ul(html_options) do
+        concat(ul do
           yield
         end)
       end
