@@ -1,4 +1,4 @@
-module Surface
+module Surfacer
   module ViewHelper
     def alert(alert, message)
       css_click div(message, class: ['alert-message', alert])

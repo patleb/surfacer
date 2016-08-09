@@ -1,6 +1,6 @@
-module Surface
+module Surfacer
   class Engine < ::Rails::Engine
-    initializer "surface.configure_application" do
+    initializer "surfacer.configure_application" do
       ActiveSupport.on_load :action_view do
         ::ActionView::Helpers::FormBuilder.class_eval do
           module WithCurrentValue
