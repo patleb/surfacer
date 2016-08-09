@@ -1,28 +1,5 @@
 module Surface
   module ViewHelper
-    def body_class(*args)
-      template = controller.template_virtual_path.tr('/_','-')
-      css_classes = [
-        template,
-        I18n.locale,
-      ]
-      css_classes.concat(args) if args.any?
-      css_classes.compact.join(' ')
-    end
-
-    def component(partial, locals = {}, &block)
-      unless partial.include? '/'
-        raise ArgumentError, 'partial full path name must be given or the partial is at the root level in views folder'
-      end
-
-      css_classes = [partial.sub(/\/_/, '-').tr('/_', '-')]
-      css_classes << locals.delete(:class)
-
-      div class: css_classes do
-        render(partial, locals, &block)
-      end
-    end
-
     def alert(alert, message)
       css_click div(message, class: ['alert-message', alert])
     end
@@ -133,44 +110,5 @@ module Surface
 
     # TODO #url-hash:target --> accordion
     # TODO span:focus ~ .class --> for when click outside the element to reset state (unlike the checkbox)
-
-    %i[
-      div
-      span
-      ul
-      li
-      a
-    ].each do |tag|
-      define_method tag do |*args, &block|
-        _with_tag tag, *args, &block
-      end
-    end
-
-    def add_class(value, html_options)
-      with_space = " " << value
-      if html_options.has_key? :class
-        html_options[:class] << with_space
-      else
-        html_options[:class] = with_space
-      end
-    end
-
-    private
-
-    def _with_tag(tag, *args, &block)
-      options = args.extract_options!
-      object_or_text = args.first
-
-      case object_or_text
-      when String, Symbol, nil
-        if block
-          content_tag tag, capture(&block), options
-        else
-          content_tag tag, object_or_text, options
-        end
-      else
-        content_tag_for tag, object_or_text, options, &block
-      end
-    end
   end
 end
