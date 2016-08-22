@@ -1,6 +1,6 @@
 @import "surfacer/shared";
 
-.ui-kit-index {
+.theme-kit-index {
   & .sections {
     @include flex-container(
       $direction: row,
@@ -35,7 +35,7 @@
     );
   }
 
-  & .ui-kit-index-tables {
+  & .theme-kit-index-tables {
     @include card;
     margin: $space-small;
   }

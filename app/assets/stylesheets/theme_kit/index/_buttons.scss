@@ -1,6 +1,6 @@
 @import "surfacer/shared";
 
-.ui-kit-index-buttons {
+.theme-kit-index-buttons {
   @include flex-container(
     $direction: column,
     $wrap: nowrap,
@@ -10,11 +10,11 @@
     $margin: $space-small 0
   );
 
-  .ui-kit-button-link {
+  .theme-kit-button-link {
     @include btn;
   }
 
-  .ui-kit-button-link, .ui-kit-button {
+  .theme-kit-button-link, .theme-kit-button {
     &.raised-primary {
       @include btn-type-and-color('raised', $primary)
     }

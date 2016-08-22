@@ -18,4 +18,6 @@ Gem::Specification.new do |s|
 
   s.add_dependency "viewizer", "~> 0.1"
   s.add_dependency "material_icons", "~> 2.2"
+
+  s.add_development_dependency "active_type"
 end

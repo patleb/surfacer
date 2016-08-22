@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
   if Rails.env.development?
-    get 'ui_kit' => 'ui_kit#index'
+    get 'theme_kit' => 'theme_kit#index'
   end
 end

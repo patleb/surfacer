@@ -1,6 +1,6 @@
 @import "surfacer/shared";
 
-.ui-kit-index-animations {
+.theme-kit-index-animations {
   flex-grow: 1;
   align-self: center;
 
@@ -15,7 +15,7 @@
   @each $direction in $fade-in-directions {
     $i: index($fade-in-directions, $direction);
 
-    .ui-kit-fade-in-from-#{$direction} {
+    .theme-kit-fade-in-from-#{$direction} {
       @include card;
       @include fade-in-from($direction, $i * 500);
       @include margin-left-right($space-small);

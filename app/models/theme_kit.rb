@@ -1,4 +1,4 @@
-class UIKit < ActiveType::Object
+class ThemeKit < ActiveType::Object
   attribute :id, :integer, default: proc { SecureRandom.random_number(100) }
   attribute :enum
   attribute :text
