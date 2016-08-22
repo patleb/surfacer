@@ -15,3 +15,4 @@ Verifiy browser support and best practices
 * `@import url(https://fonts.googleapis.com/...);`
 * limit font character set
 * import icons with url or local, [more...](https://css-tricks.com/icon-fonts-vs-svg/)
+* image lazy-load with drawed rectangle with image size instead of no space
