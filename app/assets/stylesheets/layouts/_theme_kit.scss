@@ -3,3 +3,9 @@
 .layouts-theme-kit-typography {
   @include margin-left-right($space-big);
 }
+
+.topbar {
+  display: inline-flex;
+  justify-content: space-between;
+  width: 100%;
+}

@@ -16,7 +16,8 @@
 		position: relative;
 		text-align: center;
 		padding: $space-small;
-		margin: $space-tiny $space-small;
+		margin: 0 $space-small $space-tiny $space-small;
+    transform: translateY($space-tiny);
 
 		@each $state, $colors in $flash-states {
 			&.#{$state} {

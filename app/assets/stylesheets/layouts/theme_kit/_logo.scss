@@ -1,0 +1,8 @@
+@import "surfacer/shared";
+
+.layouts-theme-kit-logo {
+  & img {
+    max-height: $space-big + $space-small;
+    width: auto;
+  }
+}

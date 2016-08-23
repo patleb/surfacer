@@ -142,21 +142,21 @@ input[type="range"] {
 
 header {
   width: 100%;
-  padding-top: $space-small;
-  padding-bottom: $space-small;
+  padding-top: 0;
+  padding-bottom: 0;
   background: $primary;
-  margin-bottom: $space-big;
+  margin-bottom: 0;
   h1,
   h2,
   h3 {
     color: white;
   }
   @media screen and (max-width: $media-med) {
-    margin-bottom: $space-big*0.85;
+    margin-bottom: 0;
   }
   @media screen and (max-width: $media-small) {
-    padding-bottom: $space-small*0.5;
-    margin-bottom: $space-small*0.85;
+    padding-bottom: 0;
+    margin-bottom: 0;
   }
 }
 

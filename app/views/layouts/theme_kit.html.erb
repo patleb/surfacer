@@ -19,16 +19,17 @@
 <body class="<%= body_class %>">
   <header>
     <%= component 'layouts/theme_kit/alerts' %>
-    <nav>
+    <nav class="topbar">
+      <%= component 'layouts/theme_kit/logo' %>
       <%= component 'layouts/theme_kit/nav' %>
     </nav>
   </header>
 
-  <aside>
-    <%= component 'layouts/theme_kit/nav_aside' %>
-  </aside>
-
   <main role="main">
+    <nav>
+      <%= component 'layouts/theme_kit/nav_aside' %>
+    </nav>
+
     <%= yield %>
   </main>
 
