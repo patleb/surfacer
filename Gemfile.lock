@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    surfacer (0.1.0)
+    surfacer (0.1.4)
       material_icons (~> 2.2)
       viewizer (~> 0.1)
 

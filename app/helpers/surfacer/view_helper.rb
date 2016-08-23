@@ -12,6 +12,7 @@ module Surfacer
       end
     end
 
+    # TODO add 2 sources --> one for the thumbnail
     def lightbox(source)
       css_click image_tag(source) do
         image_tag(source, class: 'thumbnail')

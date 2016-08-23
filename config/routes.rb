@@ -1,5 +1,3 @@
-Rails.application.routes.draw do
-  if Rails.env.development?
-    get 'theme_kit' => 'theme_kit#index'
-  end
+Surfacer::Engine.routes.draw do
+  get 'theme_kit' => 'theme_kit#index' if Rails.env.development?
 end

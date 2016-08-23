@@ -1,6 +1,6 @@
 <% collection = %w[A B C D].map{ |n| ThemeKit.new(enum: n) } %>
 
-<%= form_for @theme_kit, url: theme_kit_path, method: :get do |f| %>
+<%= form_for @theme_kit, url: surfacer_engine.theme_kit_path, method: :get do |f| %>
   <div class="text-types">
     <div class="text">
       <%= f.text_field :text, placeholder: true %>
