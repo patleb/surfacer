@@ -14,7 +14,7 @@ Gem::Specification.new do |s|
   s.description = "Material Design, CSS only framework."
   s.license     = "MIT"
 
-  s.files = Dir["{app,config,lib}/**/*", "MIT-LICENSE", "README.md"]
+  s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
 
   s.add_dependency "viewizer", "~> 0.1"
   s.add_dependency "material_icons", "~> 2.2"

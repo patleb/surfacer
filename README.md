@@ -1,4 +1,4 @@
-Material Design, CSS only framework.
+# Surfacer : Material Design, CSS only framework.
 
 ### The docs have recently moved over to github pages. The iamsurface.com link no longer works. [New docs](http://mildrenben.github.io/surface)
 
@@ -16,3 +16,5 @@ Verifiy browser support and best practices
 * limit font character set
 * import icons with url or local, [more...](https://css-tricks.com/icon-fonts-vs-svg/)
 * image lazy-load with drawed rectangle with image size instead of no space
+
+This project rocks and uses MIT-LICENSE.
