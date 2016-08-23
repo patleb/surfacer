@@ -20,4 +20,6 @@ Gem::Specification.new do |s|
   s.add_dependency "material_icons", "~> 2.2"
 
   s.add_development_dependency "active_type"
+  s.add_development_dependency "jquery-rails"
+  s.add_development_dependency "xray-rails"
 end
