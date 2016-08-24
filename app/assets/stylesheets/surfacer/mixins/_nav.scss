@@ -4,6 +4,7 @@
 
   // items
   & li {
+    outline: 0;
     cursor: pointer;
     position: relative;
     color: $body-background;
@@ -130,7 +131,6 @@
         }
         &:after {
           content: 'menu';
-          transform: translateY(-3px);
         }
       }
     }
