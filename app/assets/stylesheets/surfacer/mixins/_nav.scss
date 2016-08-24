@@ -33,6 +33,7 @@
         display: flex;
       }
     }
+    &.active,
     &:hover {
       background: lighten($primary, 5%);
       color: white;
