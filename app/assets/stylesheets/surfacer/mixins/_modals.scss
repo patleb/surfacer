@@ -14,7 +14,7 @@
         height: 100%;
         background: rgba(0, 0, 0, 0.4);
         transition: all 0.3s $cubic;
-        z-index: 9;
+        z-index: $modal-z-index - 1;
       }
     }
 
@@ -28,7 +28,7 @@
       left: 50%;
       top: 50%;
       transform: translate(-50%, -50%);
-      z-index: 10;
+      z-index: $modal-z-index;
       * {
         height: auto;
         width: auto;

@@ -117,5 +117,12 @@ $button-float-size: 50px !default;
 // Characters
 $nbsp: '\00a0';
 
-// TODO z-indexes
-$tooltip-z-index: 10;
+// z-indexes
+$form-z-index: 10;
+$header-z-index: 60;
+$tabs-z-index: 90;
+$tooltip-z-index: 100;
+$nav-z-index: 800;
+$modal-z-index: 900;
+$lightbox-z-index: 900;
+$alerts-z-index: 1000;

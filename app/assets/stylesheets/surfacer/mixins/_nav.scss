@@ -1,9 +1,11 @@
 @mixin nav {
-  z-index: 900;
+  z-index: $nav-z-index;
   position: relative;
 
   // items
   & li {
+    display: inline-flex;
+    align-items: center;
     outline: 0;
     cursor: pointer;
     position: relative;
@@ -14,6 +16,14 @@
     box-shadow: $box-shadow-raised;
     margin: 2px;
     white-space: nowrap;
+
+    // text with left icon
+    & > i {
+      color: $accent;
+      & + span {
+        margin-left: $space-tiny;
+      }
+    }
 
     // dropdown
     &:hover,
@@ -44,7 +54,7 @@
 
   // menu + dropdowns
   & ul {
-    z-index: 999;
+    z-index: $nav-z-index;
     margin: 0;
   }
 
@@ -73,7 +83,7 @@
     padding: $space-small;
     right: 0;
     left: auto;
-    z-index: 900;
+    z-index: $nav-z-index;
     background: $primary;
     box-shadow: $box-shadow-raised;
     display: none;

@@ -1,7 +1,13 @@
 @import "surfacer/shared";
 
-.layouts-theme-kit-typography {
-  @include margin-left-right($space-big);
+main {
+  padding-top: $space-big + $space-small;
+}
+
+header {
+  position: fixed;
+  z-index: $header-z-index;
+  min-height: $space-big + $space-small;
 }
 
 .topbar {
@@ -10,7 +16,6 @@
   width: 100%;
 }
 
-header {
-  position: fixed;
-  z-index: 9999;
+.layouts-theme-kit-typography {
+  @include margin-left-right($space-big);
 }
