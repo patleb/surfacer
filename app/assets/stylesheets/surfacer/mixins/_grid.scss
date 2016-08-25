@@ -1,3 +1,14 @@
+/*
+@include flex-container(
+  $direction: row,
+  $wrap: 'nowrap',
+  $justify-content: flex-start,
+  $align-items: stretch,
+  $align-content: stretch,
+  $margin: null
+);
+*/
+
 @mixin flex-container(
   $direction: null,
   $wrap: null,
@@ -11,13 +22,13 @@
   // row-reverse: right to left
   // column: top to bottom
   // column-reverse: bottom to top
-  @if $direction != null and $direction != 'row' {
+  @if $direction != null and $direction != row {
     flex-direction: $direction;
   }
   // nowrap: single-line (could overflow)
   // wrap: multi-line
   // wrap-reverse: opposite to direction defined in flex-direction
-  @if $wrap != null and $wrap != 'nowrap' {
+  @if $wrap != null and $wrap != nowrap {
     flex-wrap: $wrap;
   }
   // flex-start: items float left
@@ -25,7 +36,7 @@
   // center: items packed around the center
   // space-between: fill the container with space evenly distributed between items
   // space-around: same as space-between but with space before the start and after the end items as well
-  @if $justify-content != null and $justify-content != 'flex-start' {
+  @if $justify-content != null and $justify-content != flex-start {
     justify-content: $justify-content;
   }
   // stretch: items are stretched to fill the container
@@ -33,7 +44,7 @@
   // flex-end: items margin-bottom edge at the container bottom
   // center: items on the middle axis
   // baseline: items are aligned such as their baselines align (ex.: bottom text)
-  @if $align-items != null and $align-items != 'stretch' {
+  @if $align-items != null and $align-items != stretch {
     align-items: $align-items;
   }
   // stretch: lines are stretched to fill the container
@@ -42,7 +53,7 @@
   // center: lines packed around the middle
   // space-between: fill the container with space evenly distributed between lines
   // space-around: same as space-between but with space before the start and after the end lines as well
-  @if $align-content != null and $align-content != 'stretch' {
+  @if $align-content != null and $align-content != stretch {
     align-content: $align-content;
   }
   @if $margin != null {
